@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" lang="EN" content="cat hotel,kitty,cat hostel,pet" />
+    <meta name="keywords" lang="zh-TW" content="guyfish" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- facebook/orkut -->
+    <meta property="og:title" content="Guyfish" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="guyfish" />
+    <meta name="description" content="guyfish" />
+    <link rel="image_src" type="image/jpeg" href="images/thumb.jpg" />
+    <title>Guyfish</title>
+    <!-- favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/icons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/icons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="images/icons/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="images/icons/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="images/icons/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta
+      name="msapplication-config"
+      content="images/icons/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      rev="stylesheet"
+      media="screen"
+      href="css/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      rev="stylesheet"
+      media="screen"
+      href="css/layout.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      rev="stylesheet"
+      media="screen"
+      href="css/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      rev="stylesheet"
+      media="screen"
+      href="css/swiper.min.css"
+    />
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,500,900&display=swap&subset=chinese-traditional"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <section class="fishing-map">
+      <div class="func">
+        <div>
+          <a class="func-btn back-home" href="./">關閉地圖</a>
+        </div>
+        <div>
+          <a class="func-btn filter-list" href="list.html">列表搜尋</a>
+        </div>
+        <div id="filter" class="filter form-module">
+          <a class="func-btn filter-map" onClick="toggleFilter()">搜尋條件</a>
+          <form>
+            <h3>選擇縣市</h3>
+            <select>
+              <option>請選擇地點</option>
+              <option>基隆市</option>
+              <option>台北市</option>
+            </select>
+            <br /><br />
+            <h3>釣點類型(單選)</h3>
+            <label>
+              <input type="radio" name="type" value="管池" />
+              <span>管池</span>
+            </label>
+            <label>
+              <input type="radio" name="type" value="溪流" />
+              <span>溪流</span>
+            </label>
+            <label>
+              <input type="radio" name="type" value="溝渠" />
+              <span>溝渠</span>
+            </label>
+            <label>
+              <input type="radio" name="type" value="河岸" />
+              <span>河岸</span>
+            </label>
+            <label>
+              <input type="radio" name="type" value="海岸" />
+              <span>海岸</span>
+            </label>
+            <label>
+              <input type="radio" name="type" value="湖泊" />
+              <span>湖泊</span>
+            </label>
+            <label>
+              <input type="radio" name="type" value="水庫" />
+              <span>水庫</span>
+            </label>
+            <label>
+              <input type="radio" name="type" value="離岸" />
+              <span>離岸</span>
+            </label>
+            <br /><br />
+            <hr />
+            <div style="text-align: center">
+              <input type="reset" value="重設條件" />
+              <input type="submit" value="套用" />
+            </div>
+          </form>
+        </div>
+      </div>
+      <div id="sideInfo" class="spots">
+        <span class="toggle-side-btn" onClick="toggleSideInfo()"></span>
+        <div class="spots-list wow fadeInLeft">
+          <h2><span>4</span>個釣點</h2>
+          <ul>
+            <li onClick="showSpotIntro(true,0)">
+              <h3>八斗子礁岩村</h3>
+              <p class="address">基隆市八斗子一路217巷4號</p>
+              <span>管池</span>
+            </li>
+            <li onClick="showSpotIntro(true,1)">
+              <h3>八斗子礁岩村</h3>
+              <p class="address">基隆市八斗子一路217巷4號</p>
+              <span>管池</span>
+            </li>
+            <li onClick="showSpotIntro(true,2)">
+              <h3>八斗子礁岩村</h3>
+              <p class="address">基隆市八斗子一路217巷4號</p>
+              <span>管池</span>
+            </li>
+          </ul>
+        </div>
+        <div class="spots-intro wow fadeInRight">
+          <h2>
+            <span class="toggle-intro-btn" onClick="showSpotIntro(false)"></span
+            >回釣點列表
+          </h2>
+          <div class="thumb"><img src="./images/banner_app.jpg" /></div>
+          <div class="info">
+            <label>基本資訊</label>
+            <h3>八斗子礁岩村</h3>
+            <p class="address">基隆市八斗子一路217巷4號</p>
+            <hr />
+            <label>釣點類型</label>
+            <h3>管池</h3>
+            <hr />
+            <label>難度等級</label>
+            <h3>中等</h3>
+            <hr />
+            <label>常見魚種</label>
+            <ul class="flocks">
+              <li>
+                <img src="./images/fish1.png" />
+                <p>櫻花鉤吻鮭</p>
+              </li>
+              <li>
+                <img src="./images/fish2.png" />
+                <p>櫻花鉤吻鮭</p>
+              </li>
+              <li>
+                <img src="./images/fish3.png" />
+                <p>櫻花鉤吻鮭</p>
+              </li>
+            </ul>
+          </div>
+          <br /><br />
+          <button class="cta"><a href="spot.html">前往釣點介紹</a></button>
+        </div>
+      </div>
+      <div id="gmap" class="gmap"></div>
+    </section>
+  </body>
+  <!-- javascript -->
+  <script src="js/jquery-3.1.1.js"></script>
+  <script src="js/swiper.js"></script>
+  <script src="js/jquery.wow.min.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/vanilla-tilt.min.js"></script>
+  <script src="js/createjs.min.js"></script>
+  <script src="js/fish-animation.js"></script>
+  <script src="js/web.js"></script>
+  <script
+    async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpWXJTaEUMAHLMJU1cCfH8wKPz50TK7-Y&callback=initMap"
+  ></script>
+
+  <script type="text/javascript">
+    function initMap() {
+      var mapOptions = {
+        //zoomControl: false,
+        mapTypeControl: false,
+        //scaleControl: false,
+        streetViewControl: false,
+        rotateControl: false,
+        fullscreenControl: false,
+        zoom: 14,
+        center: new google.maps.LatLng(25.1429795, 121.7779117),
+        styles: [
+          {
+            featureType: "administrative",
+            elementType: "labels.text.fill",
+            stylers: [
+              {
+                color: "#444444",
+              },
+            ],
+          },
+          {
+            featureType: "landscape",
+            elementType: "all",
+            stylers: [
+              {
+                color: "#f2f2f2",
+              },
+            ],
+          },
+          {
+            featureType: "poi",
+            elementType: "all",
+            stylers: [
+              {
+                visibility: "off",
+              },
+            ],
+          },
+          {
+            featureType: "road",
+            elementType: "all",
+            stylers: [
+              {
+                saturation: -100,
+              },
+              {
+                lightness: 45,
+              },
+            ],
+          },
+          {
+            featureType: "road.highway",
+            elementType: "all",
+            stylers: [
+              {
+                visibility: "simplified",
+              },
+            ],
+          },
+          {
+            featureType: "road.highway",
+            elementType: "geometry.fill",
+            stylers: [
+              {
+                color: "#ffffff",
+              },
+            ],
+          },
+          {
+            featureType: "road.arterial",
+            elementType: "labels.icon",
+            stylers: [
+              {
+                visibility: "off",
+              },
+            ],
+          },
+          {
+            featureType: "transit",
+            elementType: "all",
+            stylers: [
+              {
+                visibility: "off",
+              },
+            ],
+          },
+          {
+            featureType: "water",
+            elementType: "all",
+            stylers: [
+              {
+                color: "#dde6e8",
+              },
+              {
+                visibility: "on",
+              },
+            ],
+          },
+        ],
+      };
+      var mapElement = document.getElementById("gmap");
+      var map = new google.maps.Map(mapElement, mapOptions);
+      var image = "./images/icon_map_purple.png";
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(25.1429795, 121.7779117),
+        map: map,
+        title: "My spot",
+        icon: image,
+      });
+    }
+  </script>
+</html>

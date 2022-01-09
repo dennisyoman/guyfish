@@ -1,0 +1,130 @@
+@keyframes subNav {
+  0% {
+    @include opacity(0);
+    margin-top: 5px;
+  }
+
+  100% {
+    @include opacity(1);
+    margin-top: -8px;
+  }
+}
+
+@keyframes floating {
+  0% {
+    @include translate(0, 0);
+  }
+
+  50% {
+    @include translate(0, 10px);
+  }
+}
+
+@keyframes scrolldown {
+  0% {
+    margin-bottom: 0px;
+  }
+
+  50% {
+    margin-bottom: 20px;
+  }
+}
+
+@keyframes swingg {
+  0% {
+    transform: rotate(20deg);
+  }
+
+  50% {
+    transform: rotate(-20deg);
+  }
+
+  100% {
+    transform: rotate(20deg);
+  }
+}
+
+@keyframes bookFlipOut {
+  from {
+    -webkit-transform: perspective(600px) rotate3d(0, 1, 0, -20deg);
+    transform: perspective(600px) rotate3d(0, 1, 0, -20deg);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+
+  to {
+    -webkit-transform: perspective(600px);
+    transform: perspective(600px);
+  }
+}
+
+@keyframes bookFlipIn {
+  from {
+    -webkit-transform: perspective(600px);
+    transform: perspective(600px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  to {
+    -webkit-transform: perspective(600px) rotate3d(0, 1, 0, -20deg);
+    transform: perspective(600px) rotate3d(0, 1, 0, -20deg);
+  }
+}
+@keyframes sideFlipOut {
+  from {
+    -webkit-transform: perspective(600px) rotate3d(0, 1, 0, 70deg)
+      translateX(10px);
+    transform: perspective(600px) rotate3d(0, 1, 0, 70deg) translateX(10px);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+
+  to {
+    -webkit-transform: perspective(600px) rotate3d(0, 1, 0, 90deg)
+      translateX(10px);
+    transform: perspective(600px) rotate3d(0, 1, 0, 90deg) translateX(10px);
+  }
+}
+
+@keyframes sideFlipIn {
+  from {
+    -webkit-transform: perspective(600px) rotate3d(0, 1, 0, 90deg)
+      translateX(10px);
+    transform: perspective(600px) rotate3d(0, 1, 0, 90deg) translateX(10px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  to {
+    -webkit-transform: perspective(600px) rotate3d(0, 1, 0, 60deg)
+      translateX(10px);
+    transform: perspective(600px) rotate3d(0, 1, 0, 60deg) translateX(10px);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    @include scale(0);
+  }
+
+  50% {
+    @include scale(1.4);
+  }
+
+  75% {
+    @include scale(0.8);
+  }
+
+  85% {
+    @include scale(1.15);
+  }
+
+  95% {
+    @include scale(0.9);
+  }
+
+  100% {
+    @include scale(1);
+  }
+}

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" lang="EN" content="cat hotel,kitty,cat hostel,pet" />
+    <meta name="keywords" lang="zh-TW" content="guyfish" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- facebook/orkut -->
+    <meta property="og:title" content="Guyfish" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="guyfish" />
+    <meta name="description" content="guyfish" />
+    <link rel="image_src" type="image/jpeg" href="images/thumb.jpg" />
+    <title>Guyfish</title>
+    <!-- favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/icons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/icons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="images/icons/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="images/icons/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="images/icons/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta
+      name="msapplication-config"
+      content="images/icons/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      rev="stylesheet"
+      media="screen"
+      href="css/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      rev="stylesheet"
+      media="screen"
+      href="css/layout.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      rev="stylesheet"
+      media="screen"
+      href="css/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      rev="stylesheet"
+      media="screen"
+      href="css/swiper.min.css"
+    />
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,500,900&display=swap&subset=chinese-traditional"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header id="header" class="header">
+      <div class="logo">
+        <a title="Guyfish" href="./"></a>
+      </div>
+      <ul class="main-nav">
+        <li><a href="./">首頁</a></li>
+        <li><a href="news.html">最新消息</a></li>
+        <li><a href="lookbook.html">目標魚種</a></li>
+        <li class="cta map"><a href="map.html">釣魚地圖</a></li>
+        <li class="member">
+          <a data-fancybox data-src="#hidden-login" href="javascript:;"></a>
+        </li>
+      </ul>
+      <ul class="mobile-nav">
+        <li>
+          <a href="./"
+            ><span><img src="./images/icon_home_white.png" /></span>首 頁</a
+          >
+        </li>
+        <li>
+          <a href="news.html"
+            ><span><img src="./images/icon_feedback_white.png" /></span>消 息</a
+          >
+        </li>
+        <li>
+          <a href="map.html"
+            ><span class="round"><img src="./images/icon_map_blue.png" /></span
+            >地 圖</a
+          >
+        </li>
+        <li>
+          <a href="lookbook.html"
+            ><span><img src="./images/icon_fish.png" /></span>魚 種</a
+          >
+        </li>
+        <li>
+          <a data-fancybox data-src="#hidden-login" href="javascript:;"
+            ><span><img src="./images/icon_user_white.png" /></span>會 員</a
+          >
+        </li>
+      </ul>
+    </header>
+
+    <section style="display: none" id="hidden-login">
+      <div class="form-module">
+        <form>
+          <div class="flex-box">
+            <button class="google">Google</button>
+            <button class="facebook">Facebook</button>
+          </div>
+          <hr />
+          <input
+            class="user"
+            type="text"
+            name="email"
+            placeholder="請輸入Email"
+          />
+          <br />
+          <input
+            class="lock"
+            type="password"
+            name="passowrd"
+            placeholder="請輸入密碼"
+          />
+          <br />
+          <p style="text-align: right">
+            <a href="reset.html">忘記密碼</a>
+          </p>
+          <br />
+          <div style="text-align: center">
+            <input style="width: 100%" type="submit" value="登入" />
+          </div>
+
+          <br />
+          <p style="text-align: center">
+            還不是會員？馬上 <a href="signup.html">註冊新帳號</a>
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <section class="card-wrapper">
+      <div class="card-wrapper-main">
+        <div class="card-list-header">
+          <h2>魚佬新鮮事</h2>
+        </div>
+        <div class="card-list">
+          <div class="card">
+            <a href="new.html">
+              <div class="thumb"><img src="./images/banner_app.jpg" /></div>
+              <div class="info">
+                <h3>2021/12/31</h3>
+                <h2>Title here Title here Title here Title here</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                  Ut enim ad minim veniam, quis nostrud exercitation
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="card">
+            <a href="new.html">
+              <div class="thumb"><img src="./images/banner_app.jpg" /></div>
+              <div class="info">
+                <h3>2021/12/31</h3>
+                <h2>Title here Title here Title here Title here</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                  Ut enim ad minim veniam, quis nostrud exercitation
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="card">
+            <a href="new.html">
+              <div class="thumb"><img src="./images/banner_app.jpg" /></div>
+              <div class="info">
+                <h3>2021/12/31</h3>
+                <h2>Title here Title here Title here Title here</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                  Ut enim ad minim veniam, quis nostrud exercitation
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="card">
+            <a href="new.html">
+              <div class="thumb"><img src="./images/banner_app.jpg" /></div>
+              <div class="info">
+                <h3>2021/12/31</h3>
+                <h2>Title here Title here Title here Title here</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                  Ut enim ad minim veniam, quis nostrud exercitation
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="card">
+            <a href="new.html">
+              <div class="thumb"><img src="./images/banner_app.jpg" /></div>
+              <div class="info">
+                <h3>2021/12/31</h3>
+                <h2>Title here Title here Title here Title here</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                  Ut enim ad minim veniam, quis nostrud exercitation
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="card">
+            <a href="new.html">
+              <div class="thumb"><img src="./images/banner_app.jpg" /></div>
+              <div class="info">
+                <h3>2021/12/31</h3>
+                <h2>Title here Title here Title here Title here</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                  Ut enim ad minim veniam, quis nostrud exercitation
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="card">
+            <a href="new.html">
+              <div class="thumb"><img src="./images/banner_app.jpg" /></div>
+              <div class="info">
+                <h3>2021/12/31</h3>
+                <h2>Title here Title here Title here Title here</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                  Ut enim ad minim veniam, quis nostrud exercitation
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="card">
+            <a href="new.html">
+              <div class="thumb"><img src="./images/banner_app.jpg" /></div>
+              <div class="info">
+                <h3>2021/12/31</h3>
+                <h2>Title here Title here Title here Title here</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                  Ut enim ad minim veniam, quis nostrud exercitation
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="card">
+            <a href="new.html">
+              <div class="thumb"><img src="./images/banner_app.jpg" /></div>
+              <div class="info">
+                <h3>2021/12/31</h3>
+                <h2>Title here Title here Title here Title here</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                  Ut enim ad minim veniam, quis nostrud exercitation
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div style="text-align: center">
+          <a class="more" href="#">載入更多</a>
+        </div>
+      </div>
+      <div class="card-wrapper-side">
+        <h2 class="feedback">最新留言</h2>
+        <br /><br />
+        <ul class="feedback-list">
+          <li>
+            <span class="avatar">
+              <img src="images/temp.jpg" />
+            </span>
+            <h3>Jolly Liu</h3>
+            <h4>2021/11/26</h4>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation
+            </p>
+          </li>
+          <li>
+            <span class="avatar">
+              <img src="images/temp.jpg" />
+            </span>
+            <h3>Jolly Liu</h3>
+            <h4>2021/11/26</h4>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation
+            </p>
+          </li>
+          <li>
+            <span class="avatar">
+              <img src="images/temp.jpg" />
+            </span>
+            <h3>Jolly Liu</h3>
+            <h4>2021/11/26</h4>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation
+            </p>
+          </li>
+          <li>
+            <span class="avatar">
+              <img src="images/temp.jpg" />
+            </span>
+            <h3>Jolly Liu</h3>
+            <h4>2021/11/26</h4>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation
+            </p>
+          </li>
+          <li>
+            <span class="avatar">
+              <img src="images/temp.jpg" />
+            </span>
+            <h3>Jolly Liu</h3>
+            <h4>2021/11/26</h4>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation
+            </p>
+          </li>
+        </ul>
+        <div class="ad">
+          <a href="#">
+            <img src="images/ad.jpg" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="app">
+      <h2 class="wow fadeInDown">Ready to be impressed?</h2>
+      <h3>馬上下載應用程式</h3>
+      <ul>
+        <li class="cta ghost ios"><a href="#">Apple</a></li>
+        <li class="cta ghost android"><a href="#">Android</a></li>
+      </ul>
+    </section>
+
+    <footer id="footer" class="footer">
+      <div class="logo_footer">
+        <a href="./">
+          <img alt="Guyfish" src="images/logo_blue.png" />
+        </a>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation
+        </p>
+      </div>
+      <ul class="links">
+        <li><a href="about.html">關於我們</a></li>
+        <li><a href="news.html">最新消息</a></li>
+        <li><a href="cooperate.html">行銷合作</a></li>
+      </ul>
+      <ul class="links">
+        <li><a href="map.html">釣魚地圖</a></li>
+        <li><a href="lookbook.html">目標魚種</a></li>
+        <li><a href="login.html">登入會員</a></li>
+        <li><a href="qa.html">常見問題</a></li>
+      </ul>
+      <ul class="social-media">
+        <li class="pc">
+          <a href="https://www.facebook.com/apt.meow" target="_blank"
+            ><img src="images/icon_facebook.png"
+          /></a>
+        </li>
+        <li class="android">
+          <a href="fb://page/292913544713530" target="_blank"
+            ><img src="images/icon_facebook.png"
+          /></a>
+        </li>
+        <li class="iphone">
+          <a href="fb://page/?id=292913544713530" target="_blank"
+            ><img src="images/icon_facebook.png"
+          /></a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/apt.meow" target="_blank"
+            ><img src="images/icon_instagram.png"
+          /></a>
+        </li>
+        <li>
+          <a href="https://g.page/apt-meow" target="_blank"
+            ><img src="images/icon_messenger.png"
+          /></a>
+        </li>
+      </ul>
+
+      <div class="copyright">
+        Copyright ©
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        Guyfish All Rights Reserved
+      </div>
+    </footer>
+  </body>
+  <!-- javascript -->
+  <script src="js/jquery-3.1.1.js"></script>
+  <script src="js/swiper.js"></script>
+  <script src="js/jquery.wow.min.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/vanilla-tilt.min.js"></script>
+  <script src="js/createjs.min.js"></script>
+  <script src="js/fish-animation.js"></script>
+  <script src="js/web.js"></script>
+</html>

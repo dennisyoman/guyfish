@@ -1,0 +1,1705 @@
+@charset "UTF-8";
+
+@import "./mixin";
+@import "./common";
+@import "./animation";
+
+html,
+body,
+select,
+option,
+.modal,
+input {
+  font-family: "Noto Sans TC", "Heiti TC", "儷黑 Pro", "LiHei Pro", "文泉驛正黑",
+    "WenQuanYi Zen Hei", "微軟正黑體", "Microsoft JhengHei", "新細明體",
+    sans-serif, Arial, Helvetica, "Montserrat";
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 300;
+  color: $text;
+}
+html {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+  background: #f2f2f2;
+  @media screen and (max-width: $md) {
+  }
+}
+
+hr {
+  border: none;
+  height: 0;
+  border-top: 1px solid #ccc;
+  margin: 20px auto;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  text-align: right;
+  padding: 40px $padding;
+  height: 130px;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+
+  @include transition(all, 0.3s);
+  @include box;
+  pointer-events: none;
+
+  .logo {
+    position: absolute;
+    z-index: 1;
+    top: 35px;
+    left: $padding;
+    @include transition(all, 0.3s);
+    pointer-events: auto;
+
+    a {
+      display: inline-block;
+      width: 276px;
+      height: 60px;
+      background: url("../images/logo_white.png") center center no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+
+  .mobile-nav {
+    display: none;
+    text-align: center;
+    background: $main;
+    height: 75px;
+    pointer-events: auto;
+
+    li {
+      width: 100%;
+
+      text-align: center;
+
+      a {
+        width: 100%;
+        display: block;
+        font-size: 13px;
+        text-decoration: none;
+        line-height: 20px;
+        color: $light;
+        padding: 10px 0 8px;
+        letter-spacing: 0.1em;
+        font-weight: 500;
+
+        span {
+          display: block;
+          margin: 5px auto;
+          width: 30px;
+          height: 30px;
+          &.round {
+            border: 5px solid $main;
+            width: 65px;
+            height: 65px;
+            background: #fff;
+            @include borderRadius(100%);
+            margin-top: -30px;
+            @include boxShadow(0 4px 4px rgba(0, 0, 0, 0.2));
+            img {
+              width: 50%;
+              height: 50%;
+              margin-top: 15px;
+            }
+          }
+          img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  }
+
+  .main-nav {
+    width: 100%;
+
+    li {
+      display: inline-block;
+      pointer-events: auto;
+
+      a {
+        display: inline-block;
+        font-size: 18px;
+
+        line-height: 50px;
+        padding: 0 20px;
+        color: #fff;
+        text-decoration: none;
+        letter-spacing: 0.1em;
+
+        &:hover {
+          color: $main !important;
+        }
+      }
+
+      &.member {
+        a {
+          padding: 0;
+          width: 40px;
+          height: 50px;
+          background: url("../images/icon_user_white.png") center center
+            no-repeat;
+          background-size: 40px 40px;
+          margin-left: 20px;
+        }
+      }
+
+      &.cta {
+        margin: 0;
+
+        a {
+          color: #fff !important;
+          &:hover {
+            color: #fff !important;
+          }
+        }
+      }
+    }
+  }
+
+  &.fixtop,
+  &.attop {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    height: 100px;
+    padding: 25px $padding;
+
+    @include boxShadow(0px 0px 8px rgba(0, 0, 0, 0.3));
+
+    .logo {
+      top: 20px;
+      left: $padding;
+
+      a {
+        //width:36px;
+        //height:60px;
+        background: url("../images/logo_blue.png") center center no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+
+    .main-nav {
+      li {
+        a {
+          color: $text;
+        }
+
+        &.member {
+          a {
+            background-image: url("../images/icon_user.png");
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $md) {
+    height: auto !important;
+    top: auto;
+    bottom: 0;
+    padding: 0 !important;
+    background: #fff;
+
+    @include boxShadow(0px 0px 8px rgba(0, 0, 0, 0.3));
+
+    .logo,
+    .main-nav {
+      display: none;
+    }
+
+    .mobile-nav {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+.news {
+  min-height: 90vh;
+  background: url("../images/bg.jpg") no-repeat left 50vw top,
+    url("../images/banner_deco.png") repeat right 50vw center;
+  background-size: cover, auto auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+  @media screen and (max-width: $md) {
+    background: url("../images/banner_deco.png") no-repeat center center;
+    background-size: cover;
+    display: block;
+    padding: 50px 0 100px;
+  }
+
+  .section_title {
+    margin-left: $padding;
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+    h2 {
+      font-size: 90px;
+      color: $main;
+      line-height: 1;
+      font-family: "Ubuntu";
+      font-weight: 700;
+      margin-bottom: 30px;
+      @media screen and (max-width: $md) {
+        font-size: 18vw;
+      }
+    }
+    h3 {
+      font-size: 48px;
+      color: $main;
+      line-height: 1.5;
+      font-weight: 500;
+      letter-spacing: 0.5em;
+      @media screen and (max-width: $md) {
+        font-size: 36px;
+      }
+    }
+    .more {
+      margin-bottom: 40px;
+    }
+  }
+
+  .swiper-updates {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: calc(45vh - 250px);
+    width: 100%;
+    flex: none;
+    overflow: hidden;
+    padding: 20px 0 80px;
+
+    .swiper-slide {
+      &.swiper-slide-active {
+        @include scale(1.1);
+        @include boxShadow(0px 0px 32px rgba(0, 0, 0, 0.3));
+      }
+    }
+
+    @media screen and (max-width: $md) {
+      position: relative;
+      top: 50px;
+      .swiper-slide {
+        &.card {
+          max-width: 85%;
+        }
+        &.swiper-slide-active {
+          @include scale(1);
+        }
+      }
+    }
+  }
+}
+
+.more {
+  font-size: 18px;
+  line-height: 30px;
+  color: $main;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 500;
+  background: url("../images/icon_more.png") no-repeat left center;
+  background-size: 18px 18px;
+  padding-left: 25px;
+  pointer-events: auto;
+}
+.card {
+  width: 350px !important;
+  height: 450px !important;
+  background: #fff;
+  @include transition(all, 0.6s);
+
+  &:hover {
+    @include boxShadow(3px 3px 18px rgba(0, 0, 0, 0.1));
+    .thumb {
+      img {
+        @include scale(1.1);
+      }
+    }
+  }
+  a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+  }
+  .thumb {
+    width: 100%;
+    height: 1;
+    padding-top: 56%;
+    overflow: hidden;
+    position: relative;
+    img {
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @include transition(all, 0.3s);
+    }
+  }
+  h3 {
+    font-size: 12px;
+    line-height: 1.5;
+    color: $main;
+    margin-bottom: 1em;
+  }
+  h4 {
+    font-size: 18px;
+    line-height: 1.3;
+    color: $text;
+    margin-bottom: 0.3em;
+  }
+  h2 {
+    font-size: 18px;
+    line-height: 1.5;
+    color: $text;
+    font-weight: 500;
+    margin-bottom: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  p {
+    display: -webkit-box;
+    font-size: 14px;
+    line-height: 1.5;
+    color: $text;
+    max-height: 105px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &.address {
+      &::before {
+        color: #ccc;
+        content: "\f041";
+        font-family: "fontawesome";
+        margin-right: 5px;
+      }
+    }
+  }
+  .info {
+    padding: 30px;
+
+    span {
+      display: inline-block;
+      font-size: 12px;
+      line-height: 20px;
+      height: 20px;
+      margin-right: 5px;
+      color: #fff;
+      background: $main;
+      padding: 0 10px;
+      @include borderRadius(10px);
+    }
+  }
+  @media screen and (max-width: $md) {
+    .info {
+      padding: 20px;
+    }
+  }
+}
+.card-wrapper {
+  position: relative;
+  padding: 150px $padding $padding;
+  display: flex;
+  max-width: 1600px;
+  margin: 0 auto;
+  @media screen and (max-width: $md) {
+    padding: 30px;
+    display: block;
+  }
+
+  h2 {
+    font-size: 24px;
+    color: $text;
+    line-height: 1.5;
+    font-weight: 500;
+    span {
+      font-family: "ubuntu";
+      color: $main;
+      margin-right: 8px;
+    }
+    .toggle-intro-btn {
+      width: 36px;
+      height: 30px;
+      cursor: pointer;
+      display: inline-block;
+      text-align: center;
+      &::before {
+        content: "\f060 ";
+        font-family: "fontawesome";
+        color: $text;
+        font-size: 24px;
+      }
+    }
+
+    &.feedback {
+      background: url("../images/icon_feedback.png") no-repeat left center;
+      background-size: 23px 23px;
+      padding-left: 35px;
+    }
+  }
+
+  .card-list-header {
+    display: flex;
+    margin-bottom: $padding;
+    .card-catalog {
+      border-left: 1px solid #ddd;
+      margin-left: $padding;
+      padding-left: $padding;
+      li {
+        display: inline-block;
+        margin-right: 30px;
+        label {
+          font-size: 12px;
+          color: $remark;
+          line-height: 1.5;
+          display: block;
+        }
+        p {
+          font-size: 15px;
+          color: $text;
+          line-height: 1.5;
+        }
+      }
+    }
+
+    .cta {
+      margin: 0 0 0 auto;
+      line-height: 40px;
+      padding: 0px;
+    }
+    @media screen and (max-width: $sm) {
+      display: block;
+
+      .card-catalog {
+        border: none;
+        margin-left: 0;
+        padding-left: 0;
+        margin-top: 15px;
+      }
+      .cta {
+        margin-top: -40px;
+        float: right;
+      }
+    }
+  }
+
+  .card-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    .card {
+      width: calc(33.333% - 33.33px) !important;
+      height: auto !important;
+      margin-right: 50px;
+      margin-bottom: 50px;
+      &:nth-child(3n + 0) {
+        margin-right: 0;
+      }
+      @media screen and (max-width: $md) {
+        width: calc(50% - 25px) !important;
+        &:nth-child(3n + 0) {
+          margin-right: 50px;
+        }
+        &:nth-child(2n + 0) {
+          margin-right: 0 !important;
+        }
+      }
+      @media screen and (max-width: $sm) {
+        width: 100% !important;
+        margin-right: 0 !important;
+        &:nth-child(2n + 0) {
+          margin-right: 0 !important;
+        }
+      }
+    }
+  }
+
+  .card-wrapper-main {
+    width: 100%;
+    margin-bottom: 80px;
+  }
+  .card-wrapper-side {
+    width: 25%;
+    max-width: 360px;
+    margin-left: $padding;
+    margin-bottom: 80px;
+    flex: none;
+    @media screen and (max-width: $md) {
+      border-top: 1px solid #ddd;
+      padding-top: 50px;
+      width: 100%;
+      max-width: none;
+      margin-left: 0;
+    }
+  }
+}
+
+.ad {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.feedback-list {
+  margin-bottom: 50px;
+  li {
+    display: block;
+    background: #fff;
+    padding: 20px;
+    padding-left: 70px;
+    border: 1px solid #e8e8e8;
+    position: relative;
+
+    .avatar {
+      position: absolute;
+      z-index: 1;
+      left: 20px;
+      top: 20px;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      overflow: hidden;
+      @include borderRadius(100%);
+      background: #f2f2f2 url("../images/icon_username.png") no-repeat center
+        center;
+      background-size: 17px auto;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    h3 {
+      font-size: 14px;
+      line-height: 1.5;
+      color: $text;
+      display: inline-block;
+      margin-right: 10px;
+      font-weight: 500;
+    }
+    h4 {
+      font-size: 12px;
+      line-height: 1.5;
+      color: $remark;
+      display: inline-block;
+    }
+    p {
+      font-size: 12px;
+      color: $text;
+      line-height: 1.5;
+      display: -webkit-box;
+      color: $text;
+      max-height: 54px;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.form-module {
+  h3 {
+    font-size: 14px;
+    line-height: 1.5;
+    color: $remark;
+    margin-bottom: 1em;
+  }
+  .google {
+    width: 100%;
+    background: #df2626;
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+  .facebook {
+    width: 100%;
+    background: #1874bd;
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  .verify-zone {
+    height: 50px;
+    width: 100px;
+    color: $second;
+    margin-top: -50px;
+    margin-left: calc(100% - 100px);
+    font-size: 25px;
+    text-align: center;
+    line-height: 50px;
+    font-family: "ubuntu";
+    font-weight: 700;
+  }
+
+  .flex-box {
+    display: flex;
+    * {
+      width: 100%;
+      margin: 0 10px 0 0;
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  input[type="submit"],
+  input[type="reset"],
+  button {
+    display: inline-block;
+    min-width: 1px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    font-size: 18px;
+    line-height: 50px;
+    height: 50px;
+    background: $main;
+    border: none;
+    outline: none;
+    color: #fff;
+    @include borderRadius(25px);
+    cursor: pointer;
+    min-width: 100px;
+    text-align: center;
+    padding: 0 15px;
+  }
+  input[type="reset"] {
+    background: transparent;
+    color: $text;
+  }
+
+  input,
+  select {
+    position: relative;
+    border-radius: 0;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    height: 50px;
+    line-height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 18px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    padding: 0 1em;
+    border: 1px solid #ccc;
+    @include borderRadius(25px);
+    &:focus {
+      border-color: $main;
+    }
+    &.user {
+      padding-left: 60px;
+      background: transparent url("../images/icon_username.png") no-repeat
+        center left 20px;
+      background-size: 17px auto;
+    }
+    &.lock {
+      padding-left: 60px;
+      background: transparent url("../images/icon_password.png") no-repeat
+        center left 20px;
+      background-size: 17px auto;
+    }
+    &.verify {
+      padding-left: 60px;
+      background: transparent url("../images/icon_verify.png") no-repeat center
+        left 20px;
+      background-size: 17px auto;
+    }
+  }
+
+  a {
+    color: $main;
+  }
+
+  select {
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    padding: 0 1em;
+    border: 1px solid #ccc;
+    @include borderRadius(25px);
+    background: transparent
+      url("data:image/svg+xml;utf8,<svg viewBox='0 0 140 140' width='15' height='15' xmlns='http://www.w3.org/2000/svg'><g><path d='m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z' fill='gray'/></g></svg>")
+      no-repeat;
+    background-position: right 18px top 50%;
+    color: $text;
+    &:focus {
+      border-color: $main;
+    }
+  }
+
+  label {
+    > span {
+      font-size: 18px;
+      color: $text;
+      line-height: 50px;
+      height: 50px;
+      display: inline-block;
+      width: 22%;
+      margin: 2% 1%;
+      background: #f8f8f8;
+      @include borderRadius(25px);
+      overflow: hidden;
+      text-align: center;
+      cursor: pointer;
+      @include transition(all, 0.3s);
+    }
+  }
+  input[type="radio"] {
+    position: absolute;
+    top: 0;
+    left: -1000px;
+  }
+  input[type="radio"]:checked ~ span {
+    background: $main;
+    color: #fff;
+  }
+  input[type="checkbox"] {
+    position: absolute;
+    top: 0;
+    left: -1000px;
+  }
+  input[type="checkbox"]:checked ~ span {
+    background: $main;
+    color: #fff;
+  }
+}
+
+.block-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 150px 0 100px;
+  @media screen and (max-width: $md) {
+    padding: 50px 0;
+  }
+
+  .block {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: stretch;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.8);
+    @include boxShadow(3px 3px 18px rgba(0, 0, 0, 0.1));
+    > div {
+      width: 100%;
+      padding: $padding;
+      @media screen and (max-width: $md) {
+        padding: 25px;
+      }
+    }
+    @media screen and (max-width: $md) {
+      display: block;
+    }
+    .block-title {
+      @media screen and (max-width: $md) {
+        height: 250px;
+      }
+      &.signup {
+        background: url("../images/banner_desktop.jpg") no-repeat center center;
+        background-size: cover;
+      }
+      &.reset {
+        background: url("../images/banner_mobile.jpg") no-repeat center center;
+        background-size: cover;
+      }
+      h2 {
+        font-size: 7vw;
+        color: #fff;
+        line-height: 1;
+        font-family: "Ubuntu";
+        font-weight: 700;
+        @include textShadow(2px 2px 16px rgba(0, 0, 0, 0.3));
+        margin-bottom: 15px;
+        @media screen and (max-width: $md) {
+          font-size: 18vw;
+        }
+      }
+
+      h3 {
+        font-size: 50px;
+        color: #fff;
+        font-weight: 500;
+        @media screen and (max-width: $md) {
+          font-size: 36px;
+        }
+      }
+    }
+  }
+}
+.fish-pool {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  @include opacity(0.1);
+  .canvasHolder {
+    width: 100%;
+    height: 100%;
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+.fishing-map {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+  .func {
+    position: absolute;
+    z-index: 5;
+    top: 30px;
+    left: 30px;
+    width: 450px;
+    @media screen and (max-width: $md) {
+      top: auto;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+    .filter {
+      padding: 0 0 10px;
+      width: 100%;
+      overflow: hidden;
+      form {
+        padding: 10px 20px;
+      }
+      @media screen and (max-width: $md) {
+        margin-left: 0;
+        padding: 0;
+        height: 60px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 1;
+
+        &.active {
+          height: auto;
+          z-index: 3;
+          background: #fff url("../images/btn_close.png") no-repeat top 15px
+            right 15px;
+          background-size: 30px 30px;
+        }
+      }
+    }
+    > div {
+      display: inline-block;
+      background: #fff;
+
+      float: left;
+      width: 50%;
+      border: 1px solid #e8e8e8;
+      overflow: hidden;
+      @media screen and (max-width: $md) {
+        width: auto;
+        z-index: 2;
+        position: relative;
+        float: right;
+        height: 60px;
+      }
+      @media screen and (max-width: $sm) {
+        width: 60px;
+      }
+    }
+
+    .func-btn {
+      display: inline-block;
+      width: 100%;
+      line-height: 60px;
+      height: 60px;
+      font-size: 18px;
+      color: $text;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.25em;
+
+      padding: 0 20px 0 60px;
+
+      &.back-home {
+        background-image: url("../images/icon_home.png");
+        background-size: 23px auto;
+        background-position: center left 20px;
+        background-repeat: no-repeat;
+      }
+      &.filter-map {
+        background-image: url("../images/icon_map.png");
+        background-size: 23px auto;
+        background-position: center left 20px;
+        background-repeat: no-repeat;
+      }
+      &.filter-list {
+        background-image: url("../images/icon_filter.png");
+        background-size: 23px auto;
+        background-position: center left 20px;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  .spots {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    overflow: hidden;
+    padding: 30px;
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    @include boxShadow(0px 0px 8px rgba(0, 0, 0, 0.1));
+    @include transition(all, 0.4s);
+
+    > div {
+      display: none;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: $text;
+      line-height: 1.5;
+      margin-bottom: 30px;
+      font-weight: 500;
+      span {
+        font-family: "ubuntu";
+        color: $main;
+        margin-right: 8px;
+      }
+      .toggle-intro-btn {
+        width: 36px;
+        height: 30px;
+        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+        &::before {
+          content: "\f060 ";
+          font-family: "fontawesome";
+          color: $text;
+          font-size: 24px;
+        }
+      }
+    }
+
+    .spots-list {
+      ul {
+        li {
+          display: block;
+          background: #fff;
+          border: 1px solid #ddd;
+          padding: 15px;
+          padding-right: 25px;
+          cursor: pointer;
+          margin-bottom: 20px;
+          position: relative;
+
+          h3 {
+            font-size: 18px;
+            line-height: 1.3;
+            color: $text;
+            margin-bottom: 0.3em;
+          }
+
+          p {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            color: $text;
+
+            &.address {
+              &::before {
+                color: #ccc;
+                content: "\f041";
+                font-family: "fontawesome";
+                margin-right: 5px;
+              }
+            }
+          }
+
+          span {
+            display: inline-block;
+            font-size: 12px;
+            line-height: 20px;
+            height: 20px;
+            margin-right: 5px;
+            color: #fff;
+            background: $main;
+            padding: 0 10px;
+            @include borderRadius(10px);
+          }
+
+          &::after {
+            content: "\f105 ";
+            font-family: "fontawesome";
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            color: #ccc;
+            font-size: 18px;
+            line-height: 18px;
+            margin-top: -9px;
+          }
+
+          &:hover {
+            border-color: #eee;
+            @include boxShadow(0px 0px 8px rgba(0, 0, 0, 0.1));
+            &::after {
+              color: #666;
+            }
+          }
+        }
+      }
+    }
+
+    .spots-intro {
+      .cta {
+        width: 100%;
+      }
+      .thumb {
+        img {
+          width: 100%;
+          height: auto;
+        }
+        margin-bottom: 30px;
+      }
+      .info {
+        label {
+          font-size: 14px;
+          color: $remark;
+          line-height: 1.5;
+          display: block;
+          margin-bottom: 1em;
+        }
+        h3 {
+          font-size: 18px;
+          line-height: 1.3;
+          color: $text;
+          margin-bottom: 0.3em;
+        }
+
+        p {
+          font-size: 14px;
+          line-height: 1.5;
+          margin-bottom: 0.5em;
+          color: $text;
+
+          &.address {
+            &::before {
+              color: #ccc;
+              content: "\f041";
+              font-family: "fontawesome";
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+    }
+
+    .toggle-side-btn {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      z-index: 1;
+      background: url("../images/btn_close.png") no-repeat center center;
+      background-size: 30px 30px;
+      @include rotate(225deg);
+      @include transition(all, 0.6s);
+      cursor: pointer;
+    }
+    &.active {
+      width: 400px;
+      height: 100vh;
+      overflow: auto;
+      @include translate(0, 0);
+      > div {
+        &.spots-list {
+          display: block;
+        }
+        &.spots-intro {
+          display: none;
+        }
+      }
+      .toggle-side-btn {
+        right: 0px;
+        @include rotate(0);
+      }
+      &.intro {
+        > div {
+          &.spots-list {
+            display: none;
+          }
+          &.spots-intro {
+            display: block;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: $md) {
+      @include scale(0.8);
+      &.active {
+        width: 100%;
+        max-width: 550px;
+        @include scale(1);
+      }
+    }
+  }
+
+  .gmap {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    @media screen and (max-width: $md) {
+      height: calc(100% - 60px);
+    }
+  }
+}
+
+.top {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+  background: url("../images/banner_desktop.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+
+  @media screen and (max-width: $md) {
+    height: calc(100vh - 75px);
+    background-image: url("../images/banner_mobile.jpg");
+  }
+
+  &.notfixed {
+    background-attachment: local;
+  }
+
+  .wording {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    z-index: 2;
+    pointer-events: none;
+    text-align: right;
+    align-items: right;
+    justify-content: center;
+    flex-direction: column;
+
+    .scrolldown {
+      position: absolute;
+      font-size: 18px;
+      font-family: "Ubuntu";
+      color: #fff;
+      left: 100px;
+      bottom: 200px;
+      background: url("../images/icon_scrolldown.png") no-repeat center left;
+      background-size: auto 18px;
+      padding-left: 30px;
+      @include rotate(90deg);
+      transform-origin: left top;
+      animation: scrolldown 1s infinite;
+      z-index: 5;
+    }
+
+    .hint {
+      position: absolute;
+      width: 200px;
+      height: 100px;
+      overflow: hidden;
+      left: 50%;
+      bottom: 50px;
+      margin-left: -100px;
+      z-index: 5;
+      pointer-events: auto;
+      img {
+        height: 220px;
+        width: auto;
+        position: relative;
+        left: -101px;
+        animation: swingg 2s infinite;
+        transform-origin: center bottom;
+      }
+    }
+
+    @media screen and (max-width: $md) {
+      text-align: center;
+      align-items: center;
+      .hint {
+        display: none;
+      }
+      .scrolldown {
+        left: 45px;
+        bottom: 150px;
+      }
+    }
+
+    h2 {
+      padding: 0 $padding;
+      font-size: 7vw;
+      color: #fff;
+      line-height: 1;
+      font-family: "Ubuntu";
+      font-weight: 700;
+      @include textShadow(2px 2px 16px rgba(0, 0, 0, 0.3));
+      @media screen and (max-width: $md) {
+        font-size: 12vw;
+      }
+    }
+
+    ul {
+      margin-top: 50px;
+      padding: 0 $padding;
+      li {
+        margin-left: 10px;
+        a {
+          pointer-events: auto;
+        }
+      }
+    }
+  }
+
+  .vt {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    z-index: 1;
+    transform: perspective(1000px) scale3D(1, 1, 1);
+  }
+
+  .ytbg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transform: scale(2) translateZ(-400px);
+
+    iframe {
+      pointer-events: none;
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      margin-left: -89vh;
+      margin-top: -50vh;
+      width: 178vh;
+      height: 100vh;
+
+      @media screen and (max-width: $md) {
+        display: none;
+      }
+    }
+
+    @media (min-aspect-ratio: 16 / 9) {
+      iframe {
+        width: 100vw;
+        height: 56.25vw;
+        margin-left: -50vw;
+        margin-top: -28vw;
+      }
+    }
+  }
+}
+
+.app {
+  padding: 100px 25px 70px;
+  text-align: center;
+  background: url("../images/banner_app.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+
+  h2 {
+    font-size: 7vw;
+    color: #fff;
+    line-height: 1.2;
+    font-family: "Ubuntu";
+    font-weight: 700;
+    @include textShadow(2px 2px 16px rgba(0, 0, 0, 0.3));
+    @media screen and (max-width: $md) {
+      font-size: 7vw;
+    }
+  }
+  h3 {
+    font-size: 24px;
+    color: #fff;
+    line-height: 1.5;
+    font-family: "Ubuntu";
+    font-weight: 700;
+    @include textShadow(2px 2px 16px rgba(0, 0, 0, 0.3));
+    @media screen and (max-width: $md) {
+      font-size: 18px;
+    }
+  }
+
+  ul {
+    margin-top: 50px;
+  }
+}
+
+.footer {
+  background: #202830;
+  padding: 50px $padding 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  @media screen and (max-width: $md) {
+    display: block;
+    padding: 30px 30px 100px;
+  }
+  .logo_footer {
+    margin-right: auto;
+    img {
+      height: 50px;
+      width: auto;
+    }
+    p {
+      max-width: 300px;
+      margin-top: 20px;
+      font-size: 15px;
+      line-height: 1.5;
+      color: #fff;
+    }
+    @media screen and (max-width: $md) {
+      text-align: center;
+      p {
+        text-align: left;
+        max-width: none;
+      }
+    }
+  }
+
+  .social-media {
+    margin-left: 50px;
+    flex: none;
+
+    li {
+      display: inline-block;
+
+      a {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        margin: 5px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+
+        &:hover {
+          @include opacity(0.7);
+        }
+      }
+
+      &.pc {
+        display: inline-block;
+      }
+
+      &.iphone,
+      &.android {
+        display: none;
+      }
+    }
+
+    @media screen and (max-width: $md) {
+      width: 100%;
+      margin-left: 0;
+      text-align: center;
+      li {
+        &.iphone,
+        &.android {
+          display: inline-block;
+        }
+
+        &.pc {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .links {
+    margin-left: 50px;
+    flex: none;
+
+    li {
+      display: block;
+
+      a {
+        color: #fff;
+        font-size: 14px;
+        line-height: 1.5;
+        text-decoration: none;
+      }
+    }
+    @media screen and (max-width: $md) {
+      width: 48%;
+      display: inline-block;
+      margin: 50px 0;
+      text-align: center;
+    }
+  }
+
+  .copyright {
+    flex: none;
+    width: 100%;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-top: 50px;
+    padding: 20px 0;
+    color: rgba(255, 255, 255, 0.7);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: right;
+    @media screen and (max-width: $md) {
+      text-align: Center;
+    }
+  }
+}
+
+.flocks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  li {
+    width: 25%;
+    margin: 0 8% 5% 0;
+    text-align: left;
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 8px;
+    }
+    p {
+      font-size: 12px;
+      line-height: 1.3;
+      color: $text;
+    }
+  }
+}
+
+//often used
+.cta {
+  display: inline-block;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  line-height: 50px;
+  background: $main;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  margin: 5px;
+  border: 1px solid $main;
+  min-width: 160px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  text-align: center;
+
+  @include transition(all, 0.3s);
+
+  a {
+    text-decoration: none;
+    color: #fff;
+    padding: 0 25px;
+    display: block;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  &.map,
+  &.lookbook,
+  &.ios,
+  &.android,
+  &.filter {
+    a {
+      text-decoration: none;
+      color: #fff;
+      padding: 0 25px;
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 23px;
+        height: 18px;
+        vertical-align: middle;
+        background: url("../images/icon_map_white.png") no-repeat center center;
+        background-size: contain;
+        margin-right: 0.4em;
+        margin-top: -4px;
+      }
+    }
+  }
+
+  &.lookbook {
+    a {
+      &::before {
+        width: 23px;
+        height: 18px;
+        background-image: url("../images/icon_fish.png");
+      }
+    }
+  }
+
+  &.filter {
+    a {
+      &::before {
+        width: 27px;
+        height: 18px;
+        background-image: url("../images/icon_filter.png");
+        filter: invert(1);
+      }
+    }
+  }
+
+  &.ios {
+    a {
+      &::before {
+        width: 23px;
+        height: 18px;
+        background-image: url("../images/icon_ios.png");
+      }
+    }
+  }
+
+  &.android {
+    a {
+      &::before {
+        width: 23px;
+        height: 18px;
+        background-image: url("../images/icon_android.png");
+      }
+    }
+  }
+
+  &.ghost {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: $second;
+    z-index: 0;
+    @include transition(all, 0.3s);
+  }
+
+  &:hover {
+    border-color: $second;
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+.readmore {
+  text-align: center;
+
+  a {
+    color: $third;
+    font-size: 16px;
+    line-height: 80px;
+    letter-spacing: 0.1em;
+
+    &:hover {
+      color: $third;
+    }
+  }
+}
+
+.bgImg {
+  background-position: center center;
+  background-size: cover;
+}
+
+.maxW {
+  position: relative;
+  max-width: $lg;
+  margin: 0 auto;
+}
+
+.disabled {
+  pointer-events: none !important;
+}
+
+* {
+  @include box;
+}
+
+::-webkit-scrollbar {
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #aaa;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #aaa;
+}
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #aaa;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #aaa;
+}
