@@ -252,7 +252,11 @@ hr {
       line-height: 1;
       font-family: "Ubuntu";
       font-weight: 700;
-      margin-bottom: 30px;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      @include transition(all, 1s);
+      &.animated {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
       @media screen and (max-width: $md) {
         font-size: 18vw;
       }
@@ -263,6 +267,11 @@ hr {
       line-height: 1.5;
       font-weight: 500;
       letter-spacing: 0.5em;
+      clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+      @include transition(all, 1s);
+      &.animated {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
       @media screen and (max-width: $md) {
         font-size: 36px;
       }
@@ -323,7 +332,7 @@ hr {
   @include transition(all, 0.6s);
 
   &:hover {
-    @include boxShadow(3px 3px 18px rgba(0, 0, 0, 0.1));
+    @include boxShadow(3px 3px 18px rgba(0, 0, 0, 0.2));
     .thumb {
       img {
         @include scale(1.1);
@@ -412,6 +421,129 @@ hr {
   @media screen and (max-width: $md) {
     .info {
       padding: 20px;
+    }
+  }
+}
+.lookbook-wrapper {
+  position: relative;
+  padding: 150px $padding $padding;
+  max-width: 1600px;
+  margin: 0 auto;
+  @media screen and (max-width: $md) {
+    padding: 30px;
+    display: block;
+    .list-deco {
+      text-align: center !important;
+      left: 0% !important;
+      font-size: 80px !important;
+    }
+  }
+
+  h2 {
+    font-size: 24px;
+    color: $text;
+    line-height: 40px;
+    font-weight: 500;
+    span {
+      font-family: "ubuntu";
+      font-size: 18px;
+      line-height: 40px;
+      color: $hover;
+      float: right;
+      font-weight: 600;
+      margin-left: 10px;
+    }
+    border-bottom: 1px solid #ccc;
+  }
+  .list-deco {
+    position: absolute;
+    top: 50%;
+    left: -20%;
+    text-align: left;
+    font-size: 150px;
+    line-height: 1;
+    color: $light;
+    width: 100%;
+    z-index: -1;
+    font-weight: 600;
+    @include translate(0, -50%);
+    > div {
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      @include transition(all, 1s);
+      &.animated {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+  }
+  .fish-list {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    margin: 50px auto 100px;
+    max-width: 1200px;
+
+    > div:not(.list-deco) {
+      width: 20%;
+      transform-style: preserve-3d;
+      transform: perspective(1000px);
+      @media screen and (max-width: $md) {
+        width: 25%;
+      }
+      @media screen and (max-width: $sm) {
+        width: 50%;
+        h3 {
+          font-size: 14px !important;
+        }
+        p {
+          display: none;
+        }
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.6);
+        @include boxShadow(3px 3px 18px rgba(0, 0, 0, 0.2));
+
+        h3,
+        p {
+          opacity: 1;
+        }
+      }
+
+      a {
+        display: block;
+        padding: 20px 20px;
+        text-align: center;
+        text-decoration: none;
+        transform-style: preserve-3d;
+        transform: translateZ(70px);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: center;
+        transform: translateZ(-20px);
+      }
+
+      h3 {
+        margin-top: 10px;
+        font-size: 18px;
+        color: $text;
+        line-height: 1.5;
+        opacity: 0;
+        position: relative;
+        font-weight: 500;
+        @include transition(all, 0.6s);
+      }
+      p {
+        font-size: 13px;
+        color: $remark;
+        line-height: 1.5;
+        opacity: 0;
+        position: relative;
+        @include transition(all, 0.6s);
+      }
     }
   }
 }
@@ -628,17 +760,34 @@ hr {
   .google {
     width: 100%;
     background: #df2626;
-    img {
-      height: 100%;
-      width: auto;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      background: url("../images/Icon awesome-google.png") no-repeat center
+        center;
+      background-size: contain;
+      vertical-align: middle;
+      margin-right: 8px;
+      margin-top: -4px;
     }
   }
   .facebook {
     width: 100%;
     background: #1874bd;
-    img {
-      height: 100%;
-      width: auto;
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      background: url("../images/Icon awesome-facebook-f.png") no-repeat center
+        center;
+      background-size: contain;
+      vertical-align: middle;
+      margin-right: 8px;
+      margin-top: -4px;
     }
   }
 
@@ -721,21 +870,36 @@ hr {
     }
     &.user {
       padding-left: 60px;
-      background: transparent url("../images/icon_username.png") no-repeat
-        center left 20px;
-      background-size: 17px auto;
+      background: url("../images/icon_username.png") no-repeat center left 20px,
+        linear-gradient(
+          90deg,
+          transparent 50px,
+          rgba(204, 204, 204, 1) 50px,
+          transparent 51px
+        );
+      background-size: 17px auto, auto;
     }
     &.lock {
       padding-left: 60px;
-      background: transparent url("../images/icon_password.png") no-repeat
-        center left 20px;
-      background-size: 17px auto;
+      background: url("../images/icon_password.png") no-repeat center left 20px,
+        linear-gradient(
+          90deg,
+          transparent 50px,
+          rgba(204, 204, 204, 1) 50px,
+          transparent 51px
+        );
+      background-size: 17px auto, auto;
     }
     &.verify {
       padding-left: 60px;
-      background: transparent url("../images/icon_verify.png") no-repeat center
-        left 20px;
-      background-size: 17px auto;
+      background: url("../images/icon_verify.png") no-repeat center left 20px,
+        linear-gradient(
+          90deg,
+          transparent 50px,
+          rgba(204, 204, 204, 1) 50px,
+          transparent 51px
+        );
+      background-size: 17px auto, auto;
     }
   }
 
@@ -846,6 +1010,11 @@ hr {
         font-weight: 700;
         @include textShadow(2px 2px 16px rgba(0, 0, 0, 0.3));
         margin-bottom: 15px;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        @include transition(all, 1s);
+        &.animated {
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
         @media screen and (max-width: $md) {
           font-size: 18vw;
         }
@@ -855,6 +1024,11 @@ hr {
         font-size: 50px;
         color: #fff;
         font-weight: 500;
+        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+        @include transition(all, 1s);
+        &.animated {
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
         @media screen and (max-width: $md) {
           font-size: 36px;
         }
@@ -1289,6 +1463,11 @@ hr {
       @media screen and (max-width: $md) {
         font-size: 12vw;
       }
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      @include transition(all, 1s);
+      &.animated {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
     }
 
     ul {
@@ -1361,6 +1540,11 @@ hr {
     font-family: "Ubuntu";
     font-weight: 700;
     @include textShadow(2px 2px 16px rgba(0, 0, 0, 0.3));
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    @include transition(all, 1s);
+    &.animated {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
     @media screen and (max-width: $md) {
       font-size: 7vw;
     }

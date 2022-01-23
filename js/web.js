@@ -118,6 +118,7 @@ $(document).ready(function () {
     //axis: "x",
     reverse: true,
   });
+  VanillaTilt.init(document.querySelectorAll(".vtf"));
 
   //init
   resizeScreen();
