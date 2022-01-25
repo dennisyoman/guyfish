@@ -30,7 +30,7 @@ body {
 hr {
   border: none;
   height: 0;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #ddd;
   margin: 20px auto;
 }
 
@@ -225,6 +225,24 @@ hr {
     }
   }
 }
+.swiper-carousel {
+  position: relative;
+  padding: 0 0 80px;
+  .swiper-pagination {
+    bottom: 30px !important;
+  }
+  .swiper-slide {
+    width: auto;
+    img {
+      height: 400px;
+      width: auto;
+      @media screen and (max-width: $md) {
+        width: 100vw;
+        height: auto;
+      }
+    }
+  }
+}
 
 .news {
   min-height: 90vh;
@@ -329,6 +347,7 @@ hr {
   width: 350px !important;
   height: 450px !important;
   background: #fff;
+  border: 1px solid #e2e2e2;
   @include transition(all, 0.6s);
 
   &:hover {
@@ -547,12 +566,283 @@ hr {
     }
   }
 }
+.inpage-wrapper {
+  position: relative;
+  padding: 150px $padding $padding;
+  min-height: 100vh;
+
+  &.fish-bg {
+    background: url("../images/rod.png") no-repeat left -50px bottom;
+    background-size: 80% auto;
+  }
+
+  .swiper-carousel {
+    margin-top: -50px;
+    @media screen and (max-width: $md) {
+      margin-top: -30px;
+    }
+  }
+
+  .content {
+    max-width: 1000px;
+    margin: 0 auto 0;
+    display: flex;
+    > * {
+      width: 50%;
+      margin-bottom: 50px;
+    }
+    @media screen and (max-width: $md) {
+      display: block;
+      > * {
+        width: 100%;
+      }
+    }
+  }
+
+  h1 {
+    font-size: 36px;
+    line-height: 1.5;
+    font-weight: 500;
+    color: $text;
+    margin-bottom: 0.5em;
+    @media screen and (max-width: $md) {
+      font-size: 24px;
+    }
+  }
+
+  .tag {
+    font-size: 18px;
+    line-height: 1.5;
+    color: $text;
+    margin-bottom: 0.5em;
+    @media screen and (max-width: $md) {
+      font-size: 15px;
+    }
+
+    &::before {
+      font-family: "fontawesome";
+      content: "\f02c";
+      color: $remark;
+      margin-right: 0.5em;
+    }
+  }
+
+  .address {
+    font-size: 18px;
+    line-height: 1.5;
+    color: $text;
+    margin-bottom: 0.5em;
+    @media screen and (max-width: $md) {
+      font-size: 15px;
+    }
+
+    &::before {
+      font-family: "fontawesome";
+      content: "\f041";
+      color: $remark;
+      margin-right: 0.5em;
+    }
+  }
+
+  .date {
+    font-size: 18px;
+    line-height: 1.5;
+    color: $main;
+    margin-bottom: 0.5em;
+    @media screen and (max-width: $md) {
+      font-size: 15px;
+    }
+
+    &::before {
+      font-family: "fontawesome";
+      content: "\f133";
+      color: $remark;
+      margin-right: 0.5em;
+    }
+  }
+
+  .info {
+    label {
+      font-size: 14px;
+      color: $remark;
+      line-height: 1.5;
+      display: block;
+      margin-bottom: 1em;
+    }
+    h3 {
+      font-size: 18px;
+      line-height: 1.3;
+      color: $text;
+      margin-bottom: 0.3em;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 0.5em;
+      color: $text;
+
+      &.address {
+        &::before {
+          color: #ccc;
+          content: "\f041";
+          font-family: "fontawesome";
+          margin-right: 5px;
+        }
+      }
+    }
+    .level {
+      > span {
+        width: 25px;
+        height: 25px;
+        color: #ccc;
+        text-align: center;
+        font-size: 25px;
+        line-height: 25px;
+        &::before {
+          content: "\f006";
+          font-family: "fontawesome";
+          margin-right: 5px;
+        }
+
+        &.full {
+          color: $third;
+          &::before {
+            content: "\f005";
+          }
+        }
+        &.half {
+          color: $third;
+          &::before {
+            content: "\f123";
+          }
+        }
+      }
+    }
+    .location {
+      border: 8px solid #fff;
+      iframe {
+        width: 100%;
+        height: 280px;
+      }
+    }
+  }
+
+  .fish-img {
+    width: 100%;
+    text-align: center;
+    img {
+      width: 100%;
+      height: auto;
+      max-width: 900px;
+      margin: $padding auto;
+    }
+  }
+  @media screen and (max-width: $md) {
+    padding: 30px;
+  }
+}
+
+.inpage-sub-wrapper {
+  background: #fff;
+  position: relative;
+  padding: $padding;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 24px;
+    color: $text;
+    line-height: 1.5;
+    font-weight: 500;
+    span {
+      font-family: "ubuntu";
+      color: $main;
+      margin-right: 8px;
+    }
+    .toggle-intro-btn {
+      width: 36px;
+      height: 30px;
+      cursor: pointer;
+      display: inline-block;
+      text-align: center;
+      &::before {
+        content: "\f060 ";
+        font-family: "fontawesome";
+        color: $text;
+        font-size: 24px;
+      }
+    }
+
+    &.feedback {
+      background: url("../images/icon_feedback.png") no-repeat left center;
+      background-size: 23px 23px;
+      padding-left: 35px;
+    }
+  }
+
+  .content,
+  .card-wrapper {
+    padding: 0;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: block;
+  }
+  .content-header {
+    display: flex;
+    margin-bottom: $padding;
+    .card-catalog {
+      border-left: 1px solid #ddd;
+      margin-left: $padding;
+      padding-left: $padding;
+      li {
+        display: inline-block;
+        margin-right: 30px;
+        label {
+          font-size: 12px;
+          color: $remark;
+          line-height: 1.5;
+          display: block;
+        }
+        p {
+          font-size: 15px;
+          color: $text;
+          line-height: 1.5;
+        }
+      }
+    }
+
+    .cta {
+      margin: 0 0 0 auto;
+      line-height: 40px;
+      padding: 0px;
+    }
+    @media screen and (max-width: $sm) {
+      display: block;
+
+      .card-catalog {
+        border: none;
+        margin-left: 0;
+        padding-left: 0;
+        margin-top: 15px;
+      }
+      .cta {
+        margin-top: -40px;
+        float: right;
+      }
+    }
+  }
+  @media screen and (max-width: $md) {
+    padding: 30px;
+    display: block;
+  }
+}
 .card-wrapper {
   position: relative;
   padding: 150px $padding $padding;
   display: flex;
   max-width: 1600px;
   margin: 0 auto;
+
   @media screen and (max-width: $md) {
     padding: 30px;
     display: block;
@@ -692,6 +982,77 @@ hr {
   }
 }
 
+.feedbacker {
+  display: block;
+  background: #fff;
+  padding: 20px;
+  padding-left: 70px;
+  border: 1px solid #e8e8e8;
+  position: relative;
+
+  .avatar {
+    position: absolute;
+    z-index: 1;
+    left: 20px;
+    top: 20px;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    @include borderRadius(100%);
+    background: #f2f2f2 url("../images/icon_username.png") no-repeat center
+      center;
+    background-size: 17px auto;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  h3 {
+    font-size: 14px;
+    line-height: 1.5;
+    color: $text;
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: 500;
+  }
+  h4 {
+    font-size: 12px;
+    line-height: 1.5;
+    color: $remark;
+    display: inline-block;
+  }
+  p {
+    font-size: 12px;
+    color: $text;
+    line-height: 1.5;
+    display: -webkit-box;
+    color: $text;
+    max-height: 54px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  input[type="text"] {
+    position: relative;
+    border-radius: 0;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    height: 50px;
+    line-height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+  }
+}
 .feedback-list {
   margin-bottom: 50px;
   li {

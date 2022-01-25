@@ -63,9 +63,10 @@ $(document).ready(function () {
   if ($(".swiper-carousel").length > 0) {
     var carouselSwiper = new Swiper(".swiper-carousel", {
       slidesPerView: "auto",
-      spaceBetween: 10,
+      spaceBetween: 0,
       loop: true,
       centeredSlides: true,
+      autoHeight: true,
       autoplay: {
         delay: 3000,
       },
@@ -73,30 +74,6 @@ $(document).ready(function () {
       pagination: {
         el: ".swiper-carousel .swiper-pagination",
         clickable: true,
-      },
-    });
-  }
-  if ($(".swiper-container-slider").length > 0) {
-    sliderSwiper = new Swiper(".swiper-container-slider", {
-      // Optional parameters
-      autoHeight: true,
-      spaceBetween: 0,
-      slidesPerGroup: 1,
-      loop: true,
-      speed: 1000,
-      autoplay: {
-        delay: 3000,
-      },
-      // If we need pagination
-      pagination: {
-        el: ".slider .swiper-pagination",
-        clickable: true,
-      },
-
-      // Navigation arrows
-      navigation: {
-        nextEl: ".slider .swiper-button-next",
-        prevEl: ".slider .swiper-button-prev",
       },
     });
   }

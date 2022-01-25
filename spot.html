@@ -176,205 +176,106 @@
       </div>
     </section>
 
-    <section style="display: none" id="hidden-filter">
-      <div class="form-module">
-        <form>
-          <h3>選擇縣市</h3>
-          <select>
-            <option>請選擇地點</option>
-            <option>基隆市</option>
-            <option>台北市</option>
-          </select>
-          <br /><br />
-          <h3>釣點類型(單選)</h3>
-          <label>
-            <input type="radio" name="type" value="管池" />
-            <span>管池</span>
-          </label>
-          <label>
-            <input type="radio" name="type" value="溪流" />
-            <span>溪流</span>
-          </label>
-          <label>
-            <input type="radio" name="type" value="溝渠" />
-            <span>溝渠</span>
-          </label>
-          <label>
-            <input type="radio" name="type" value="河岸" />
-            <span>河岸</span>
-          </label>
-          <label>
-            <input type="radio" name="type" value="海岸" />
-            <span>海岸</span>
-          </label>
-          <label>
-            <input type="radio" name="type" value="湖泊" />
-            <span>湖泊</span>
-          </label>
-          <label>
-            <input type="radio" name="type" value="水庫" />
-            <span>水庫</span>
-          </label>
-          <label>
-            <input type="radio" name="type" value="離岸" />
-            <span>離岸</span>
-          </label>
-          <br /><br />
-          <hr />
-          <div style="text-align: center">
-            <input type="reset" value="重設條件" />
-            <input type="submit" value="套用" />
+    <section class="inpage-wrapper">
+      <div class="swiper-carousel swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <img src="./images/banner_app.jpg" />
           </div>
-        </form>
+          <div class="swiper-slide">
+            <img src="./images/banner_desktop.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/banner_mobile.jpg" />
+          </div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <div class="content">
+        <div>
+          <h1>八斗子礁岩村</h1>
+          <div class="address">25°02'00.6"N 121°33'50.8"E</div>
+        </div>
+        <div class="info">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation.Lorem ipsum dolor sit
+            amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation<br />Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation
+          </p>
+          <hr />
+          <label>縣市</label>
+          <h3>基隆市</h3>
+          <hr />
+          <label>釣點類型</label>
+          <h3>管池</h3>
+          <hr />
+          <label>常見魚種</label>
+          <ul class="flocks">
+            <li>
+              <img src="./images/fish1.png" />
+              <p>櫻花鉤吻鮭</p>
+            </li>
+            <li>
+              <img src="./images/fish2.png" />
+              <p>櫻花鉤吻鮭</p>
+            </li>
+            <li>
+              <img src="./images/fish3.png" />
+              <p>櫻花鉤吻鮭</p>
+            </li>
+          </ul>
+          <hr />
+          <label>Google地圖</label>
+          <div class="location">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7223.568135562164!2d121.79103319856416!3d25.14299014766818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x345d4f775037593b%3A0xf81d7f315ef3655!2z5b-Y5oaC6LC3!5e0!3m2!1szh-TW!2stw!4v1643101134109!5m2!1szh-TW!2stw"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="card-wrapper">
-      <div class="card-wrapper-main">
-        <div class="card-list-header">
-          <h2><span>20</span>個釣點</h2>
-          <ul class="card-catalog">
-            <li>
-              <label>縣市</label>
-              <p>台北縣</p>
-            </li>
-            <li>
-              <label>類型</label>
-              <p>管池</p>
-            </li>
-          </ul>
-          <button class="cta filter">
-            <a data-fancybox data-src="#hidden-filter" href="javascript:;"
-              >搜尋條件</a
-            >
-          </button>
+    <section class="inpage-sub-wrapper">
+      <div class="content">
+        <div class="content-header">
+          <h2 class="feedback">25個留言</h2>
         </div>
-        <div class="card-list">
-          <div class="card">
-            <a href="spot.html">
-              <div class="thumb">
-                <img src="./images/banner_app.jpg" />
-              </div>
-              <div class="info">
-                <h4>八斗子礁岩村</h4>
-                <p class="address">25°02'00.6"N 121°33'50.8"E</p>
-                <br />
-                <span>管池</span>
-              </div>
-            </a>
-          </div>
-          <div class="card">
-            <a href="spot.html">
-              <div class="thumb">
-                <img src="./images/banner_mobile.jpg" />
-              </div>
-              <div class="info">
-                <h4>八斗子礁岩村</h4>
-                <p class="address">25°02'00.6"N 121°33'50.8"E</p>
-                <br />
-                <span>管池</span>
-              </div>
-            </a>
-          </div>
-          <div class="card">
-            <a href="spot.html">
-              <div class="thumb">
-                <img src="./images/banner_app.jpg" />
-              </div>
-              <div class="info">
-                <h4>八斗子礁岩村</h4>
-                <p class="address">25°02'00.6"N 121°33'50.8"E</p>
-                <br />
-                <span>管池</span>
-              </div>
-            </a>
-          </div>
-          <div class="card">
-            <a href="spot.html">
-              <div class="thumb">
-                <img src="./images/banner_mobile.jpg" />
-              </div>
-              <div class="info">
-                <h4>八斗子礁岩村</h4>
-                <p class="address">25°02'00.6"N 121°33'50.8"E</p>
-                <br />
-                <span>管池</span>
-              </div>
-            </a>
-          </div>
-          <div class="card">
-            <a href="spot.html">
-              <div class="thumb">
-                <img src="./images/banner_app.jpg" />
-              </div>
-              <div class="info">
-                <h4>八斗子礁岩村</h4>
-                <p class="address">25°02'00.6"N 121°33'50.8"E</p>
-                <br />
-                <span>管池</span>
-              </div>
-            </a>
-          </div>
-          <div class="card">
-            <a href="spot.html">
-              <div class="thumb">
-                <img src="./images/banner_mobile.jpg" />
-              </div>
-              <div class="info">
-                <h4>八斗子礁岩村</h4>
-                <p class="address">25°02'00.6"N 121°33'50.8"E</p>
-                <br />
-                <span>管池</span>
-              </div>
-            </a>
-          </div>
-          <div class="card">
-            <a href="spot.html">
-              <div class="thumb">
-                <img src="./images/banner_app.jpg" />
-              </div>
-              <div class="info">
-                <h4>八斗子礁岩村</h4>
-                <p class="address">25°02'00.6"N 121°33'50.8"E</p>
-                <br />
-                <span>管池</span>
-              </div>
-            </a>
-          </div>
-          <div class="card">
-            <a href="spot.html">
-              <div class="thumb">
-                <img src="./images/banner_mobile.jpg" />
-              </div>
-              <div class="info">
-                <h4>八斗子礁岩村</h4>
-                <p class="address">25°02'00.6"N 121°33'50.8"E</p>
-                <br />
-                <span>管池</span>
-              </div>
-            </a>
-          </div>
-          <div class="card">
-            <a href="spot.html">
-              <div class="thumb">
-                <img src="./images/banner_app.jpg" />
-              </div>
-              <div class="info">
-                <h4>八斗子礁岩村</h4>
-                <p class="address">25°02'00.6"N 121°33'50.8"E</p>
-                <br />
-                <span>管池</span>
-              </div>
-            </a>
-          </div>
-        </div>
+        <!-- 未登入 -->
         <div style="text-align: center">
-          <a class="more" href="#">載入更多</a>
+          <span class="cta"
+            ><a data-fancybox data-src="#hidden-login" href="javascript:;"
+              >登入留言</a
+            ></span
+          >
         </div>
-      </div>
-      <div class="card-wrapper-side">
-        <h2 class="feedback">最新留言</h2>
-        <br /><br />
+        <!-- 已登入 -->
+        <!--
+        <div class="feedbacker">
+          <span class="avatar">
+            <img src="images/temp.jpg" />
+          </span>
+          <h3>Jolly Liu</h3>
+          <input type="text" placeholder="新增公開留言" />
+          <br />
+          <div style="text-align: right">
+            <span class="cta"><a href="#">送出留言</a></span>
+          </div>
+        </div>
+        -->
+        <br />
         <ul class="feedback-list">
           <li>
             <span class="avatar">
@@ -437,10 +338,8 @@
             </p>
           </li>
         </ul>
-        <div class="ad">
-          <a href="#">
-            <img src="images/ad.jpg" />
-          </a>
+        <div style="text-align: center">
+          <a class="more" href="#">載入更多</a>
         </div>
       </div>
     </section>
