@@ -965,6 +965,13 @@ hr {
   background-size: 80% auto;
 }
 
+@media screen and (max-width: 900px) {
+  .inpage-wrapper.fish-bg {
+    background-position: left -50px top;
+    background-size: 150% auto;
+  }
+}
+
 .inpage-wrapper .swiper-carousel {
   margin-top: -50px;
 }

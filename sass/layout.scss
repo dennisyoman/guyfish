@@ -586,6 +586,10 @@ hr {
   &.fish-bg {
     background: url("../images/rod.png") no-repeat left -50px bottom;
     background-size: 80% auto;
+    @media screen and (max-width: $md) {
+      background-position: left -50px top;
+      background-size: 150% auto;
+    }
   }
 
   .swiper-carousel {
