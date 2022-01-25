@@ -427,11 +427,22 @@ hr {
 
 .header .main-nav li.member a {
   padding: 0;
-  width: 40px;
+  width: 50px;
   height: 50px;
   background: url("../images/icon_user_white.png") center center no-repeat;
   background-size: 40px 40px;
   margin-left: 20px;
+  overflow: hidden;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+}
+
+.header .main-nav li.member a img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .header .main-nav li.cta {

@@ -105,7 +105,9 @@
         <li><a href="lookbook.html">目標魚種</a></li>
         <li class="cta map"><a href="map.html">釣魚地圖</a></li>
         <li class="member">
-          <a data-fancybox data-src="#hidden-login" href="javascript:;"></a>
+          <a data-fancybox data-src="#hidden-logout" href="javascript:;"
+            ><img src="./images/temp.jpg"
+          /></a>
         </li>
       </ul>
       <ul class="mobile-nav">
@@ -131,7 +133,7 @@
           >
         </li>
         <li>
-          <a data-fancybox data-src="#hidden-login" href="javascript:;"
+          <a data-fancybox data-src="#hidden-logout" href="javascript:;"
             ><span><img src="./images/icon_user_white.png" /></span>會 員</a
           >
         </li>
@@ -172,6 +174,18 @@
           <p style="text-align: center">
             還不是會員？馬上 <a href="signup.html">註冊新帳號</a>
           </p>
+        </form>
+      </div>
+    </section>
+
+    <section style="display: none" id="hidden-logout">
+      <div class="form-module">
+        <form>
+          <div style="text-align: center">
+            <p>確定要登出？</p>
+            <br />
+            <input style="width: 100%" type="submit" value="登出" />
+          </div>
         </form>
       </div>
     </section>
