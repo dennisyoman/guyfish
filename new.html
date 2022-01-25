@@ -177,30 +177,17 @@
     </section>
 
     <section class="inpage-wrapper">
-      <div class="swiper-carousel swiper">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-          <!-- Slides -->
-          <div class="swiper-slide">
-            <img src="./images/banner_app.jpg" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./images/banner_desktop.jpg" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./images/banner_mobile.jpg" />
-          </div>
-        </div>
-        <!-- If we need pagination -->
-        <div class="swiper-pagination"></div>
+      <div class="inpage-banner">
+        <img src="./images/banner_desktop.jpg" />
       </div>
-
       <div class="content">
         <div>
           <h1>Tile here Title here</h1>
           <div class="date">2021/12/31</div>
         </div>
         <div class="info">
+          <img src="./images/banner_app.jpg" />
+          <br /><br />
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -218,6 +205,14 @@
           <hr />
           <label>釣點類型</label>
           <h3>管池</h3>
+        </div>
+      </div>
+      <div style="text-align: center">
+        <a class="return" href="news.html">回消息列表</a>
+      </div>
+      <div class="fish-pool">
+        <div id="canvasHolder" class="canvasHolder">
+          <canvas id="fishHolder" width="100" height="100"></canvas>
         </div>
       </div>
     </section>

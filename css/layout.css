@@ -655,6 +655,23 @@ hr {
   pointer-events: auto;
 }
 
+.return {
+  font-size: 18px;
+  line-height: 30px;
+  color: #333333;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 500;
+  background: url("../images/btn_back.png") no-repeat left center;
+  background-size: 18px 18px;
+  padding-left: 25px;
+  pointer-events: auto;
+  opacity: 0.3;
+  -moz-opacity: 0.3;
+  -khtml-opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+
 .card {
   width: 350px !important;
   height: 450px !important;
@@ -941,7 +958,6 @@ hr {
 .inpage-wrapper {
   position: relative;
   padding: 150px 50px 50px;
-  min-height: 100vh;
 }
 
 .inpage-wrapper.fish-bg {
@@ -957,6 +973,30 @@ hr {
   .inpage-wrapper .swiper-carousel {
     margin-top: -30px;
   }
+}
+
+.inpage-wrapper .inpage-banner {
+  width: calc(100% + 100px);
+  margin-left: -50px;
+  margin-top: -50px;
+  height: 400px;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 900px) {
+  .inpage-wrapper .inpage-banner {
+    width: calc(100% + 60px);
+    margin-left: -30px;
+    margin-top: -30px;
+    height: 200px;
+  }
+}
+
+.inpage-wrapper .inpage-banner img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .inpage-wrapper .content {
@@ -996,6 +1036,7 @@ hr {
 }
 
 .inpage-wrapper .tag {
+  font-family: "ubuntu";
   font-size: 18px;
   line-height: 1.5;
   color: #333333;
@@ -1016,6 +1057,7 @@ hr {
 }
 
 .inpage-wrapper .address {
+  font-family: "ubuntu";
   font-size: 18px;
   line-height: 1.5;
   color: #333333;
@@ -1036,9 +1078,10 @@ hr {
 }
 
 .inpage-wrapper .date {
+  font-family: "ubuntu";
   font-size: 18px;
   line-height: 1.5;
-  color: #1874bd;
+  color: #333333;
   margin-bottom: 0.5em;
 }
 
@@ -1053,6 +1096,11 @@ hr {
   content: "\f133";
   color: #999999;
   margin-right: 0.5em;
+}
+
+.inpage-wrapper .info img {
+  max-width: 100%;
+  height: auto;
 }
 
 .inpage-wrapper .info label {
@@ -1910,7 +1958,7 @@ hr {
   width: 100%;
   min-height: 100%;
   overflow: hidden;
-  z-index: 0;
+  z-index: -1;
   top: 0;
   left: 0;
   opacity: 0.1;
@@ -2171,6 +2219,11 @@ hr {
 
 .fishing-map .spots .spots-intro .thumb img {
   width: 100%;
+  height: auto;
+}
+
+.fishing-map .spots .spots-intro .info img {
+  max-width: 100%;
   height: auto;
 }
 

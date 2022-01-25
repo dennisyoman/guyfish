@@ -343,6 +343,19 @@ hr {
   padding-left: 25px;
   pointer-events: auto;
 }
+.return {
+  font-size: 18px;
+  line-height: 30px;
+  color: $text;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 500;
+  background: url("../images/btn_back.png") no-repeat left center;
+  background-size: 18px 18px;
+  padding-left: 25px;
+  pointer-events: auto;
+  @include opacity(0.3);
+}
 .card {
   width: 350px !important;
   height: 450px !important;
@@ -569,7 +582,6 @@ hr {
 .inpage-wrapper {
   position: relative;
   padding: 150px $padding $padding;
-  min-height: 100vh;
 
   &.fish-bg {
     background: url("../images/rod.png") no-repeat left -50px bottom;
@@ -580,6 +592,24 @@ hr {
     margin-top: -50px;
     @media screen and (max-width: $md) {
       margin-top: -30px;
+    }
+  }
+  .inpage-banner {
+    width: calc(100% + 100px);
+    margin-left: -50px;
+    margin-top: -50px;
+    height: 400px;
+    margin-bottom: 50px;
+    @media screen and (max-width: $md) {
+      width: calc(100% + 60px);
+      margin-left: -30px;
+      margin-top: -30px;
+      height: 200px;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 
@@ -611,6 +641,7 @@ hr {
   }
 
   .tag {
+    font-family: "ubuntu";
     font-size: 18px;
     line-height: 1.5;
     color: $text;
@@ -628,6 +659,7 @@ hr {
   }
 
   .address {
+    font-family: "ubuntu";
     font-size: 18px;
     line-height: 1.5;
     color: $text;
@@ -645,9 +677,10 @@ hr {
   }
 
   .date {
+    font-family: "ubuntu";
     font-size: 18px;
     line-height: 1.5;
-    color: $main;
+    color: $text;
     margin-bottom: 0.5em;
     @media screen and (max-width: $md) {
       font-size: 15px;
@@ -662,6 +695,10 @@ hr {
   }
 
   .info {
+    img {
+      max-width: 100%;
+      height: auto;
+    }
     label {
       font-size: 14px;
       color: $remark;
@@ -1402,7 +1439,7 @@ hr {
   width: 100%;
   min-height: 100%;
   overflow: hidden;
-  z-index: 0;
+  z-index: -1;
   top: 0;
   left: 0;
   @include opacity(0.1);
@@ -1638,6 +1675,10 @@ hr {
         margin-bottom: 30px;
       }
       .info {
+        img {
+          max-width: 100%;
+          height: auto;
+        }
         label {
           font-size: 14px;
           color: $remark;
