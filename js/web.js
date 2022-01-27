@@ -67,9 +67,11 @@ $(document).ready(function () {
       loop: true,
       centeredSlides: true,
       autoHeight: true,
+      /*
       autoplay: {
         delay: 3000,
-      },
+      },*/
+
       // If we need pagination
       pagination: {
         el: ".swiper-carousel .swiper-pagination",

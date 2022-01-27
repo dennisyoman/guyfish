@@ -512,6 +512,16 @@ hr {
 .swiper-carousel {
   position: relative;
   padding: 0 0 80px;
+  width: calc(100% + 100px);
+  margin-left: -50px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 900px) {
+  .swiper-carousel {
+    width: calc(100% + 60px);
+    margin-left: -30px;
+  }
 }
 
 .swiper-carousel .swiper-pagination {
@@ -532,6 +542,40 @@ hr {
     width: 100vw;
     height: auto;
   }
+}
+
+.swiper-carousel .swiper-slide iframe {
+  height: 400px;
+  width: 711px;
+}
+
+@media screen and (max-width: 900px) {
+  .swiper-carousel .swiper-slide iframe {
+    width: 100vw;
+    height: 56vw;
+  }
+}
+
+.infowindow {
+  text-align: center;
+}
+
+.infowindow h3 {
+  font-size: 15px;
+  color: #333333;
+  font-weight: 600;
+}
+
+.infowindow a {
+  margin-top: 10px;
+  color: #fff;
+  font-size: 12px;
+  line-height: 25px;
+  height: 25px;
+  padding: 0 10px;
+  background: #1874bd;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .news {
@@ -703,6 +747,13 @@ hr {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
   -webkit-animation-fill-mode: forwards;
+}
+
+.card.video h4::before {
+  content: "\f16a ";
+  font-family: "fontawesome";
+  float: right;
+  color: #ff4141;
 }
 
 .card a {
@@ -1649,6 +1700,8 @@ hr {
 .form-module .google {
   width: 100%;
   background: #df2626;
+  padding: 0;
+  white-space: nowrap;
 }
 
 .form-module .google::before {
@@ -1666,6 +1719,8 @@ hr {
 .form-module .facebook {
   width: 100%;
   background: #1874bd;
+  padding: 0;
+  white-space: nowrap;
 }
 
 .form-module .facebook::before {

@@ -105,7 +105,7 @@
         </div>
         <div id="filter" class="filter form-module">
           <a class="func-btn filter-map" onClick="toggleFilter()">搜尋條件</a>
-          <form>
+          <form onsubmit="return false;" action="return false;">
             <h3>選擇縣市</h3>
             <select>
               <option>請選擇地點</option>
@@ -150,7 +150,7 @@
             <hr />
             <div style="text-align: center">
               <input type="reset" value="重設條件" />
-              <input type="submit" value="套用" />
+              <button onClick="updateMap(event)">套用</button>
             </div>
           </form>
         </div>
@@ -166,31 +166,8 @@
             <span class="toggle-intro-btn" onClick="showSpotIntro(false)"></span
             >回釣點列表
           </h2>
-          <div class="thumb"><img src="./images/banner_app.jpg" /></div>
-          <div class="info">
-            <label>基本資訊</label>
-            <h3>八斗子礁岩村</h3>
-            <p class="address">25°02'00.6"N 121°33'50.8"E</p>
-            <hr />
-            <label>釣點類型</label>
-            <h3>管池</h3>
-            <hr />
-            <label>常見魚種</label>
-            <ul class="flocks">
-              <li>
-                <img src="./images/fish1.png" />
-                <p>櫻花鉤吻鮭</p>
-              </li>
-              <li>
-                <img src="./images/fish2.png" />
-                <p>櫻花鉤吻鮭</p>
-              </li>
-              <li>
-                <img src="./images/fish3.png" />
-                <p>櫻花鉤吻鮭</p>
-              </li>
-            </ul>
-          </div>
+          <div class="thumb"></div>
+          <div class="info"></div>
           <br /><br />
           <button class="cta"><a href="spot.html">前往釣點介紹</a></button>
         </div>
@@ -215,7 +192,7 @@
   <script type="text/javascript">
     var map;
     var infowindow;
-    var arrMarkers = {};
+    var arrMarkers = [];
     //init
     function initMap() {
       var mapOptions = {
@@ -330,7 +307,7 @@
       });
 
       //
-      updateMap(spots);
+      //updateMap();
     }
     //should get spots data from AJAX
     var spots = {
@@ -360,8 +337,18 @@
       ],
     };
 
-    function updateMap() {
+    function updateMap(event) {
+      event.preventDefault();
+      $("#filter").removeClass("active");
+      //clean markers
+      for (var i = 0; i < arrMarkers.length; i++) {
+        arrMarkers[i].setMap(null);
+      }
+      arrMarkers = [];
+      //get new spots JSON
+
       // create spots list
+      var latlngbounds = new google.maps.LatLngBounds();
       var list = $("#spots-list");
       list.find(">h2 > span").text(spots["spots"].length);
       var spotsHTML = "";
@@ -380,21 +367,17 @@
       list.find(">ul").empty().html(spotsHTML);
 
       //google map setup
-      ////reset zoom and center of map
 
-      map.setZoom(15);
-      var latLng = new google.maps.LatLng(
-        spots["spots"][0]["latLng"][0],
-        spots["spots"][0]["latLng"][1]
-      );
-      map.panTo(latLng);
-
-      //
-
-      arrMarkers = {};
       var marker, i;
 
       for (i = 0; i < spots["spots"].length; i++) {
+        latlngbounds.extend(
+          new google.maps.LatLng(
+            spots["spots"][i]["latLng"][0],
+            spots["spots"][i]["latLng"][1]
+          )
+        );
+        //
         var img = "./images/icon_map_video.png";
         if (spots["spots"][i]["videoID"] == "") {
           img = "./images/icon_map_spot.png";
@@ -421,25 +404,16 @@
           "click",
           (function (marker, i) {
             return function () {
-              if ($("#sideInfo").hasClass("active")) {
-                infowindow.setContent(
-                  `<div class="infowindow"><h3>${spots["spots"][i]["name"]}</h3></div>`
-                );
-              } else {
-                infowindow.setContent(
-                  `<div class="infowindow"><h3>${spots["spots"][i]["name"]}</h3><a href="spot.html?id=${i}">前往釣點介紹</a></div>`
-                );
-              }
-
-              infowindow.open(map, marker);
-              //
-              /*
+              infowindow.setContent(
+                `<div class="infowindow"><h3>${spots["spots"][i]["name"]}</h3><a href="spot.html?id=${i}">前往釣點介紹</a></div>`
+              );
               var latLng = new google.maps.LatLng(
                 spots["spots"][i]["latLng"][0],
                 spots["spots"][i]["latLng"][1]
               );
               map.panTo(latLng);
-              */
+              infowindow.open(map, marker);
+              //
               list
                 .find(">ul > li")
                 .removeClass("focus")
@@ -453,6 +427,16 @@
           })(marker, i)
         );
       }
+
+      //reset zoom and center of map
+      map.setCenter(latlngbounds.getCenter());
+      map.fitBounds(latlngbounds);
+      $("#spots-intro")
+        .delay(50)
+        .queue(function () {
+          map.setZoom(map.getZoom() - 2);
+          $(this).dequeue();
+        });
     }
 
     function showSpotIntro(boolean, id) {
@@ -500,13 +484,18 @@
           .find("button > a")
           .attr("href", "spot.html?id=" + id);
         //
+
         var latLng = new google.maps.LatLng(
           spots["spots"][id]["latLng"][0],
           spots["spots"][id]["latLng"][1]
         );
-        //map.panTo(latLng);
-        infowindow.setContent(spots["spots"][id]["name"]);
+        map.panTo(latLng);
+        infowindow.setContent(
+          `<div class="infowindow"><h3>${spots["spots"][id]["name"]}</h3><a href="spot.html?id=${id}">前往釣點介紹</a></div>`
+        );
+
         infowindow.open(map, arrMarkers[id]);
+
         //then
         $("#sideInfo").addClass("intro");
       } else {
