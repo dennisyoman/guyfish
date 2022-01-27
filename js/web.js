@@ -113,16 +113,6 @@ function toggleFilter() {
   $("#sideInfo").removeClass("active");
 }
 
-function showSpotIntro(boolean, id) {
-  if (boolean) {
-    //create content according to id
-    //then
-    $("#sideInfo").addClass("intro");
-  } else {
-    $("#sideInfo").removeClass("intro");
-  }
-}
-
 function addVideo() {
   var ytID = "gM4VF7uvEdg";
   if ($(".ytbg").length > 0) {
@@ -214,5 +204,18 @@ var Wow = (function () {
     },
   };
 })();
+
+(function ($) {
+  jQuery.fn.setfocus = function () {
+    return this.each(function () {
+      var dom = this;
+      setTimeout(function () {
+        try {
+          dom.focus();
+        } catch (e) {}
+      }, 0);
+    });
+  };
+})(jQuery);
 
 window.onload = function () {};

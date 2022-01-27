@@ -2170,6 +2170,13 @@ hr {
   position: relative;
 }
 
+.fishing-map .spots .spots-list ul li.video h3::before {
+  content: "\f16a ";
+  font-family: "fontawesome";
+  float: right;
+  color: #ff4141;
+}
+
 .fishing-map .spots .spots-list ul li h3 {
   font-size: 18px;
   line-height: 1.3;
@@ -2217,14 +2224,18 @@ hr {
   margin-top: -9px;
 }
 
-.fishing-map .spots .spots-list ul li:hover {
+.fishing-map .spots .spots-list ul li:hover, .fishing-map .spots .spots-list ul li:focus {
   border-color: #eee;
   -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
 }
 
-.fishing-map .spots .spots-list ul li:hover::after {
+.fishing-map .spots .spots-list ul li:hover::after, .fishing-map .spots .spots-list ul li:focus::after {
   color: #666;
+}
+
+.fishing-map .spots .spots-list ul li:focus {
+  border-color: #1874bd;
 }
 
 .fishing-map .spots .spots-intro .cta {
@@ -2238,6 +2249,22 @@ hr {
 .fishing-map .spots .spots-intro .thumb img {
   width: 100%;
   height: auto;
+}
+
+.fishing-map .spots .spots-intro .thumb .yt {
+  width: 100%;
+  position: relative;
+  height: 0;
+  padding-bottom: 56.6%;
+  background: #eee;
+}
+
+.fishing-map .spots .spots-intro .thumb .yt iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .fishing-map .spots .spots-intro .info img {

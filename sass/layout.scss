@@ -1616,6 +1616,17 @@ hr {
           margin-bottom: 20px;
           position: relative;
 
+          &.video {
+            h3 {
+              &::before {
+                content: "\f16a ";
+                font-family: "fontawesome";
+                float: right;
+                color: $yt;
+              }
+            }
+          }
+
           h3 {
             font-size: 18px;
             line-height: 1.3;
@@ -1663,12 +1674,16 @@ hr {
             margin-top: -9px;
           }
 
-          &:hover {
+          &:hover,
+          &:focus {
             border-color: #eee;
             @include boxShadow(0px 0px 8px rgba(0, 0, 0, 0.1));
             &::after {
               color: #666;
             }
+          }
+          &:focus {
+            border-color: $main;
           }
         }
       }
@@ -1682,6 +1697,20 @@ hr {
         img {
           width: 100%;
           height: auto;
+        }
+        .yt {
+          width: 100%;
+          position: relative;
+          height: 0;
+          padding-bottom: 56.6%;
+          background: #eee;
+          iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
         }
         margin-bottom: 30px;
       }
