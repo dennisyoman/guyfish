@@ -446,19 +446,31 @@
         if (spots["spots"][id]["videoID"] == "") {
           $("#spots-intro")
             .find(".thumb")
+            .removeClass("video")
             .html(`<img src="${spots["spots"][id]["thumb"]}" />`);
         } else {
+          /*
           $("#spots-intro")
             .find(".thumb")
             .html(
               `<div class="yt"><iframe width="100%" height="auto" src="https://www.youtube.com/embed/${spots["spots"][id]["videoID"]}" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`
+            );*/
+          $("#spots-intro")
+            .find(".thumb")
+            .addClass("video")
+            .html(
+              `<img src="https://i.ytimg.com/vi/${spots["spots"][id]["videoID"]}/mqdefault.jpg" />`
             );
         }
 
         var infoHTML = `
             <label>基本資訊</label>
-            <h3>${spots["spots"][id]["name"]}</h3>
-            <p class="address">${spots["spots"][id]["latLng"][0]},${spots["spots"][id]["latLng"][1]}</p>
+            <h3 class="${spots["spots"][id]["videoID"] == "" ? "" : "video"}">${
+          spots["spots"][id]["name"]
+        }</h3>
+            <p class="address">${spots["spots"][id]["latLng"][0]},${
+          spots["spots"][id]["latLng"][1]
+        }</p>
             <hr />
             <label>釣點類型</label>
             <h3>${spots["spots"][id]["type"]}</h3>

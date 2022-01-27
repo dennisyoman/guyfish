@@ -62,9 +62,9 @@ $(document).ready(function () {
   //initialize swipers when document ready
   if ($(".swiper-carousel").length > 0) {
     var carouselSwiper = new Swiper(".swiper-carousel", {
-      slidesPerView: "auto",
+      slidesPerView: 1,
       spaceBetween: 0,
-      loop: true,
+      //loop: true,
       centeredSlides: true,
       autoHeight: true,
       /*
