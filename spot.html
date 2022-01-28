@@ -187,23 +187,9 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
               <!-- Slides -->
-              <div class="swiper-slide video">
-                <a
-                  data-fancybox
-                  href="https://www.youtube.com/watch?v=w4RODw5tk0o"
-                  ><img src="https://i.ytimg.com/vi/w4RODw5tk0o/mqdefault.jpg"
-                /></a>
-
-                <!--
-                <div class="yt">
-                  <iframe
-                    src="https://www.youtube.com/embed/w4RODw5tk0o"
-                    frameborder="0"
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-              --></div>
+              <div class="swiper-slide">
+                <img src="./images/banner_app.jpg" />
+              </div>
               <div class="swiper-slide">
                 <img src="./images/banner_desktop.jpg" />
               </div>
@@ -244,16 +230,6 @@
               <p>櫻花鉤吻鮭</p>
             </li>
           </ul>
-          <hr />
-          <label>Google地圖</label>
-          <div class="location">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7223.568135562164!2d121.79103319856416!3d25.14299014766818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x345d4f775037593b%3A0xf81d7f315ef3655!2z5b-Y5oaC6LC3!5e0!3m2!1szh-TW!2stw!4v1643101134109!5m2!1szh-TW!2stw"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-            ></iframe>
-          </div>
         </div>
       </div>
 
@@ -263,6 +239,50 @@
         </div>
       </div>
     </section>
+
+    <section class="inpage-sub-wrapper">
+      <div class="content card-wrapper">
+        <div class="content-header">
+          <h2><span>2</span>個相關影片</h2>
+        </div>
+        <div class="card-list">
+          <div class="card video">
+            <div class="thumb">
+              <iframe
+                src="https://www.youtube.com/embed/w4RODw5tk0o"
+                frameborder="0"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="info">
+              <h4>八斗子礁岩村</h4>
+              <p class="address">25°02'00.6"N 121°33'50.8"E</p>
+              <br />
+              <span>管池</span>
+            </div>
+          </div>
+          <div class="card video">
+            <div class="thumb">
+              <iframe
+                src="https://www.youtube.com/embed/w4RODw5tk0o"
+                frameborder="0"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="info">
+              <h4>八斗子礁岩村</h4>
+              <p class="address">25°02'00.6"N 121°33'50.8"E</p>
+              <br />
+              <span>管池</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gmap" class="full-gmap"></section>
 
     <section class="inpage-sub-wrapper">
       <div class="content">
@@ -437,4 +457,128 @@
   <script src="js/createjs.min.js"></script>
   <script src="js/fish-animation.js"></script>
   <script src="js/web.js"></script>
+  <script
+    async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpWXJTaEUMAHLMJU1cCfH8wKPz50TK7-Y&callback=initMapInpage"
+  ></script>
+  <script type="text/javascript">
+    var map;
+    //init
+    function initMapInpage() {
+      var mapOptions = {
+        //zoomControl: false,
+        mapTypeControl: false,
+        //scaleControl: false,
+        //streetViewControl: false,
+        rotateControl: false,
+        fullscreenControl: false,
+        zoom: 14,
+        center: new google.maps.LatLng(25.142979, 121.777911),
+        styles: [
+          {
+            featureType: "administrative",
+            elementType: "labels.text.fill",
+            stylers: [
+              {
+                color: "#444444",
+              },
+            ],
+          },
+          {
+            featureType: "landscape",
+            elementType: "all",
+            stylers: [
+              {
+                color: "#f2f2f2",
+              },
+            ],
+          },
+          {
+            featureType: "poi",
+            elementType: "all",
+            stylers: [
+              {
+                visibility: "off",
+              },
+            ],
+          },
+          {
+            featureType: "road",
+            elementType: "all",
+            stylers: [
+              {
+                saturation: -100,
+              },
+              {
+                lightness: 45,
+              },
+            ],
+          },
+          {
+            featureType: "road.highway",
+            elementType: "all",
+            stylers: [
+              {
+                visibility: "simplified",
+              },
+            ],
+          },
+          {
+            featureType: "road.highway",
+            elementType: "geometry.fill",
+            stylers: [
+              {
+                color: "#ffffff",
+              },
+            ],
+          },
+          {
+            featureType: "road.arterial",
+            elementType: "labels.icon",
+            stylers: [
+              {
+                visibility: "off",
+              },
+            ],
+          },
+          {
+            featureType: "transit",
+            elementType: "all",
+            stylers: [
+              {
+                visibility: "off",
+              },
+            ],
+          },
+          {
+            featureType: "water",
+            elementType: "all",
+            stylers: [
+              {
+                color: "#dde6e8",
+              },
+              {
+                visibility: "on",
+              },
+            ],
+          },
+        ],
+      };
+
+      var mapElement = document.getElementById("gmap");
+      map = new google.maps.Map(mapElement, mapOptions);
+      var img = "./images/icon_map_spot.png";
+      const image = {
+        url: img,
+        scaledSize: new google.maps.Size(27, 36),
+      };
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(25.142979, 121.777911),
+        animation: google.maps.Animation.DROP,
+        map: map,
+        title: "八斗子礁岩村",
+        icon: image,
+      });
+    }
+  </script>
 </html>
