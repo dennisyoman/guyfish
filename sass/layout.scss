@@ -1632,6 +1632,7 @@ hr {
       margin-right: 1%;
       border: 1px solid #e8e8e8;
       overflow: hidden;
+      @include boxShadow(0px 0px 8px rgba(0, 0, 0, 0.1));
       @media screen and (max-width: $md) {
         width: auto;
         z-index: 2;
@@ -1639,6 +1640,7 @@ hr {
         float: right;
         height: 60px;
         margin-right: 0;
+        @include boxShadow(0px 0px 8px rgba(0, 0, 0, 0));
       }
       @media screen and (max-width: $sm) {
         width: 60px;
