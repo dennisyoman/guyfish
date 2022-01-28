@@ -445,9 +445,9 @@
       map.setCenter(latlngbounds.getCenter());
       map.fitBounds(latlngbounds);
       $("#spots-intro")
-        .delay(50)
+        .delay(200)
         .queue(function () {
-          map.setZoom(map.getZoom() - 2);
+          map.setZoom(map.getZoom() - 0);
           $(this).dequeue();
         });
     }
