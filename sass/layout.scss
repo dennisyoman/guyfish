@@ -1899,9 +1899,8 @@ hr {
       top: 0px;
       right: 0px;
       z-index: 1;
-      background: url("../images/btn_close.png") no-repeat center center;
-      background-size: 30px 30px;
-      @include rotate(225deg);
+      background: url("../images/btn_list.png") no-repeat center center;
+      background-size: 30px 25px;
       @include transition(all, 0.6s);
       cursor: pointer;
     }
@@ -1919,8 +1918,9 @@ hr {
         }
       }
       .toggle-side-btn {
+        background: url("../images/btn_close.png") no-repeat center center;
+        background-size: 30px 30px;
         right: 0px;
-        @include rotate(0);
       }
       &.intro {
         > div {
