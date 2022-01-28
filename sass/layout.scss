@@ -1598,7 +1598,8 @@ hr {
     }
     .filter {
       padding: 0 0 10px;
-      width: 100%;
+      width: 99%;
+      margin-top: 1%;
       overflow: hidden;
       form {
         padding: 10px 20px;
@@ -1611,6 +1612,8 @@ hr {
         left: 0;
         bottom: 0;
         z-index: 1;
+        width: 100%;
+        margin-top: 0;
 
         &.active {
           height: auto;
@@ -1624,9 +1627,9 @@ hr {
     > div {
       display: inline-block;
       background: #fff;
-
       float: left;
-      width: 50%;
+      width: 49%;
+      margin-right: 1%;
       border: 1px solid #e8e8e8;
       overflow: hidden;
       @media screen and (max-width: $md) {
@@ -1635,6 +1638,7 @@ hr {
         position: relative;
         float: right;
         height: 60px;
+        margin-right: 0;
       }
       @media screen and (max-width: $sm) {
         width: 60px;
