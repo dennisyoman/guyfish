@@ -307,7 +307,7 @@
       });
 
       //
-      //updateMap();
+      updateMap();
     }
     //should get spots data from AJAX
     var spots = {
@@ -316,7 +316,7 @@
           name: "八斗子礁岩村",
           thumb: "./images/banner_app.jpg",
           videoID: "",
-          latLng: [25.1429795, 121.7779117],
+          latLng: [25.142979, 121.777911],
           type: "管池",
           level: 3,
           fishID: [11, 14],
@@ -327,18 +327,31 @@
           name: "阿里巴巴港口",
           thumb: "./images/banner_desktop.jpg",
           videoID: "w4RODw5tk0o",
-          latLng: [25.146320979369467, 121.78598008406146],
+          latLng: [25.14632, 121.78598],
           type: "溪流",
           level: 4,
           fishID: [0, 7, 8],
           description: "",
           city: "基隆市",
         },
+        {
+          name: "貓鼻頭公園",
+          thumb: "./images/banner_desktop.jpg",
+          videoID: "",
+          latLng: [21.92238, 120.739347],
+          type: "溪流",
+          level: 4,
+          fishID: [0, 7, 8],
+          description: "",
+          city: "屏東縣",
+        },
       ],
     };
 
     function updateMap(event) {
-      event.preventDefault();
+      if (event) {
+        event.preventDefault();
+      }
       $("#filter").removeClass("active");
       //clean markers
       for (var i = 0; i < arrMarkers.length; i++) {
