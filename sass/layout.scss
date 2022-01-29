@@ -1269,19 +1269,19 @@ hr {
   }
 }
 #hidden-login {
-  width: calc(90vw - 90px);
+  width: calc(100vw - 102px);
   max-width: 360px;
 }
 #hidden-logout {
-  width: calc(90vw - 90px);
+  width: calc(100vw - 102px);
   max-width: 250px;
 }
 #hidden-filter {
-  width: calc(90vw - 90px);
+  width: calc(100vw - 102px);
   max-width: 500px;
 }
 #hidden-newspot {
-  width: calc(90vw - 90px);
+  width: calc(100vw - 102px);
   max-width: 500px;
 
   .add-spot-step2 {
@@ -1741,25 +1741,25 @@ hr {
       &.new-spot {
         background-image: url("../images/icon_add.png");
         background-size: 23px auto;
-        background-position: center left 20px;
+        background-position: center left 17px;
         background-repeat: no-repeat;
       }
       &.back-home {
         background-image: url("../images/icon_home.png");
         background-size: 23px auto;
-        background-position: center left 20px;
+        background-position: center left 17px;
         background-repeat: no-repeat;
       }
       &.filter-map {
         background-image: url("../images/icon_map.png");
         background-size: 23px auto;
-        background-position: center left 20px;
+        background-position: center left 17px;
         background-repeat: no-repeat;
       }
       &.filter-list {
         background-image: url("../images/icon_filter.png");
         background-size: 23px auto;
-        background-position: center left 20px;
+        background-position: center left 17px;
         background-repeat: no-repeat;
       }
     }
