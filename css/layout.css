@@ -1732,6 +1732,74 @@ hr {
   text-overflow: ellipsis;
 }
 
+#hidden-login {
+  width: calc(90vw - 90px);
+  max-width: 360px;
+}
+
+#hidden-logout {
+  width: calc(90vw - 90px);
+  max-width: 250px;
+}
+
+#hidden-filter {
+  width: calc(90vw - 90px);
+  max-width: 500px;
+}
+
+#hidden-newspot {
+  width: calc(90vw - 90px);
+  max-width: 500px;
+}
+
+#hidden-newspot .add-spot-step2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 1px);
+  background: #fff;
+  z-index: 2;
+  display: none;
+}
+
+#hidden-newspot .add-spot-step2 .form-gmap {
+  height: calc(100% - 142px);
+  background: #eee;
+  margin-bottom: 30px;
+}
+
+#hidden-newspot .add-spot-step2 .form-gmap button {
+  min-width: 1px;
+}
+
+#hidden-newspot .add-spot-step3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 1px);
+  background: #fff;
+  z-index: 2;
+  display: none;
+}
+
+#hidden-newspot.step2 .add-spot-step2 {
+  display: block;
+}
+
+#hidden-newspot.step3 .add-spot-step3 {
+  display: block;
+}
+
+.form-module h2 {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #333333;
+  margin-bottom: 1em;
+  font-weight: 500;
+}
+
 .form-module h3 {
   font-size: 14px;
   line-height: 1.5;
@@ -1739,9 +1807,24 @@ hr {
   margin-bottom: 1em;
 }
 
+.form-module h3 span {
+  color: #ff4141;
+}
+
+.form-module h4 {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #999999;
+  margin-bottom: 0.3em;
+}
+
+.form-module h4 span {
+  color: #ff4141;
+}
+
 .form-module .google {
   width: 100%;
-  background: #df2626;
+  background: #ff4141;
   padding: 0;
   white-space: nowrap;
 }
@@ -1829,6 +1912,7 @@ hr {
   padding: 0 15px;
 }
 
+.form-module .ghost,
 .form-module input[type="reset"] {
   background: transparent;
   color: #333333;
@@ -2106,6 +2190,13 @@ hr {
   top: 30px;
   left: 30px;
   width: 450px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
 }
 
 @media screen and (max-width: 900px) {
@@ -2115,13 +2206,13 @@ hr {
     bottom: 0;
     left: 0;
     width: 100%;
+    display: block;
   }
 }
 
 .fishing-map .func .filter {
   padding: 0 0 10px;
-  width: 99%;
-  margin-top: 1%;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -2138,8 +2229,6 @@ hr {
     left: 0;
     bottom: 0;
     z-index: 1;
-    width: 100%;
-    margin-top: 0;
   }
   .fishing-map .func .filter.active {
     height: auto;
@@ -2152,13 +2241,9 @@ hr {
 .fishing-map .func > div {
   display: inline-block;
   background: #fff;
-  float: left;
-  width: 49%;
-  margin-right: 1%;
+  width: 33.33%;
   border: 1px solid #e8e8e8;
   overflow: hidden;
-  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
 }
 
 @media screen and (max-width: 900px) {
@@ -2169,8 +2254,6 @@ hr {
     float: right;
     height: 60px;
     margin-right: 0;
-    -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0);
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0);
   }
 }
 
@@ -2185,12 +2268,23 @@ hr {
   width: 100%;
   line-height: 60px;
   height: 60px;
-  font-size: 18px;
+  font-size: 15px;
   color: #333333;
   font-weight: 500;
   text-decoration: none;
-  letter-spacing: 0.25em;
-  padding: 0 20px 0 60px;
+  padding: 0 0px 0 60px;
+  letter-spacing: 0.1em;
+}
+
+.fishing-map .func .func-btn span {
+  color: #e47818;
+}
+
+.fishing-map .func .func-btn.new-spot {
+  background-image: url("../images/icon_add.png");
+  background-size: 23px auto;
+  background-position: center left 20px;
+  background-repeat: no-repeat;
 }
 
 .fishing-map .func .func-btn.back-home {
@@ -2220,7 +2314,7 @@ hr {
   top: 0;
   right: 0;
   height: 100vh;
-  overflow: hidden;
+  overflow: hdden;
   padding: 30px;
   width: 100px;
   height: 100px;
@@ -3038,6 +3132,10 @@ hr {
 
 .cta:hover::after {
   width: 100%;
+}
+
+form {
+  position: relative;
 }
 
 .readmore {

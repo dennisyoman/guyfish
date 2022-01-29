@@ -1268,17 +1268,93 @@ hr {
     }
   }
 }
+#hidden-login {
+  width: calc(90vw - 90px);
+  max-width: 360px;
+}
+#hidden-logout {
+  width: calc(90vw - 90px);
+  max-width: 250px;
+}
+#hidden-filter {
+  width: calc(90vw - 90px);
+  max-width: 500px;
+}
+#hidden-newspot {
+  width: calc(90vw - 90px);
+  max-width: 500px;
+
+  .add-spot-step2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 1px);
+    background: #fff;
+    z-index: 2;
+    display: none;
+    .form-gmap {
+      height: calc(100% - 142px);
+      background: #eee;
+      margin-bottom: 30px;
+
+      button {
+        min-width: 1px;
+      }
+    }
+  }
+  .add-spot-step3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 1px);
+    background: #fff;
+    z-index: 2;
+    display: none;
+  }
+
+  &.step2 {
+    .add-spot-step2 {
+      display: block;
+    }
+  }
+  &.step3 {
+    .add-spot-step3 {
+      display: block;
+    }
+  }
+}
 
 .form-module {
+  h2 {
+    font-size: 18px;
+    line-height: 1.5;
+    color: $text;
+    margin-bottom: 1em;
+    font-weight: 500;
+  }
   h3 {
     font-size: 14px;
     line-height: 1.5;
     color: $remark;
     margin-bottom: 1em;
+    span {
+      color: $yt;
+    }
+  }
+  h4 {
+    font-size: 14px;
+    line-height: 1.5;
+    color: $remark;
+    margin-bottom: 0.3em;
+    span {
+      color: $yt;
+    }
   }
   .google {
     width: 100%;
-    background: #df2626;
+    background: $yt;
     padding: 0;
     white-space: nowrap;
 
@@ -1359,6 +1435,7 @@ hr {
     text-align: center;
     padding: 0 15px;
   }
+  .ghost,
   input[type="reset"] {
     background: transparent;
     color: $text;
@@ -1589,17 +1666,20 @@ hr {
     top: 30px;
     left: 30px;
     width: 450px;
+    display: flex;
+    flex-wrap: wrap;
+    @include boxShadow(0px 0px 8px rgba(0, 0, 0, 0.1));
     @media screen and (max-width: $md) {
       position: fixed;
       top: auto;
       bottom: 0;
       left: 0;
       width: 100%;
+      display: block;
     }
     .filter {
       padding: 0 0 10px;
-      width: 99%;
-      margin-top: 1%;
+      width: 100%;
       overflow: hidden;
       form {
         padding: 10px 20px;
@@ -1612,8 +1692,6 @@ hr {
         left: 0;
         bottom: 0;
         z-index: 1;
-        width: 100%;
-        margin-top: 0;
 
         &.active {
           height: auto;
@@ -1627,12 +1705,10 @@ hr {
     > div {
       display: inline-block;
       background: #fff;
-      float: left;
-      width: 49%;
-      margin-right: 1%;
+      width: 33.33%;
       border: 1px solid #e8e8e8;
       overflow: hidden;
-      @include boxShadow(0px 0px 8px rgba(0, 0, 0, 0.1));
+
       @media screen and (max-width: $md) {
         width: auto;
         z-index: 2;
@@ -1640,7 +1716,6 @@ hr {
         float: right;
         height: 60px;
         margin-right: 0;
-        @include boxShadow(0px 0px 8px rgba(0, 0, 0, 0));
       }
       @media screen and (max-width: $sm) {
         width: 60px;
@@ -1652,14 +1727,23 @@ hr {
       width: 100%;
       line-height: 60px;
       height: 60px;
-      font-size: 18px;
+      font-size: 15px;
       color: $text;
       font-weight: 500;
       text-decoration: none;
-      letter-spacing: 0.25em;
+      padding: 0 0px 0 60px;
+      letter-spacing: 0.1em;
 
-      padding: 0 20px 0 60px;
+      span {
+        color: $third;
+      }
 
+      &.new-spot {
+        background-image: url("../images/icon_add.png");
+        background-size: 23px auto;
+        background-position: center left 20px;
+        background-repeat: no-repeat;
+      }
       &.back-home {
         background-image: url("../images/icon_home.png");
         background-size: 23px auto;
@@ -1687,7 +1771,7 @@ hr {
     top: 0;
     right: 0;
     height: 100vh;
-    overflow: hidden;
+    overflow: hdden;
     padding: 30px;
     width: 100px;
     height: 100px;
@@ -2418,6 +2502,10 @@ hr {
       width: 100%;
     }
   }
+}
+
+form {
+  position: relative;
 }
 
 .readmore {

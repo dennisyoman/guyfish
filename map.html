@@ -95,6 +95,78 @@
   </head>
 
   <body>
+    <section style="display: none" id="hidden-newspot" class="step1">
+      <div class="form-module">
+        <form onsubmit="return false;" action="return false;">
+          <div>
+            <h2>登錄新釣點</h2>
+            <input type="text" name="name" placeholder="自訂釣點名稱" />
+            <br />
+            <input type="text" name="video" placeholder="Youtube影片連結或ID" />
+            <br />
+            <h3>*釣點類型(單選)</h3>
+            <label>
+              <input type="radio" name="type" value="管池" />
+              <span>管池</span>
+            </label>
+            <label>
+              <input type="radio" name="type" value="溪流" />
+              <span>溪流</span>
+            </label>
+            <label>
+              <input type="radio" name="type" value="溝渠" />
+              <span>溝渠</span>
+            </label>
+            <label>
+              <input type="radio" name="type" value="河岸" />
+              <span>河岸</span>
+            </label>
+            <label>
+              <input type="radio" name="type" value="海岸" />
+              <span>海岸</span>
+            </label>
+            <label>
+              <input type="radio" name="type" value="湖泊" />
+              <span>湖泊</span>
+            </label>
+            <label>
+              <input type="radio" name="type" value="水庫" />
+              <span>水庫</span>
+            </label>
+            <label>
+              <input type="radio" name="type" value="離岸" />
+              <span>離岸</span>
+            </label>
+            <br /><br />
+            <hr />
+            <div style="text-align: center">
+              <button onClick="verifyAddSpotStep1()">下一步（位置輸入）</button>
+            </div>
+          </div>
+          <div class="add-spot-step2">
+            <p></p>
+            <h3>*點擊地圖設定釣點位置</h3>
+            <div id="form-gmap" class="form-gmap"></div>
+            <input type="text" name="lat" style="display: none" />
+            <input type="text" name="lng" style="display: none" />
+            <div style="text-align: center">
+              <button
+                class="ghost"
+                onClick="javascript:$('#hidden-newspot').removeClass('step2')"
+              >
+                上一步
+              </button>
+              <button onClick="verifyAddSpotStep2()">確認登錄</button>
+            </div>
+          </div>
+          <div class="add-spot-step3" style="text-align: center">
+            <h2>寫入資料庫狀態</h2>
+            <div class="feedback">相關系統回應</div>
+          </div>
+        </form>
+      </div>
+    </section>
+
     <section class="fishing-map">
       <div class="func">
         <div>
@@ -103,16 +175,28 @@
         <div>
           <a class="func-btn filter-list" href="list.html">列表搜尋</a>
         </div>
+        <div>
+          <a
+            class="func-btn new-spot"
+            data-fancybox
+            data-options='{"touch" : false}'
+            data-src="#hidden-newspot"
+            onClick="javascript:$('#hidden-newspot').removeClass('step2 step3')"
+            href="javascript:;"
+            ><span>登錄</span>釣點</a
+          >
+        </div>
+
         <div id="filter" class="filter form-module">
           <a class="func-btn filter-map" onClick="toggleFilter()">搜尋條件</a>
           <form onsubmit="return false;" action="return false;">
-            <h3>選擇縣市</h3>
             <select>
               <option>請選擇地點</option>
+              <option>All</option>
               <option>基隆市</option>
               <option>台北市</option>
             </select>
-            <br /><br />
+            <br />
             <h3>釣點類型(單選)</h3>
             <label>
               <input type="radio" name="type" value="管池" />
@@ -190,12 +274,16 @@
   ></script>
 
   <script type="text/javascript">
+    var newMarker;
     var map;
+    var fmap;
     var infowindow;
+    var latlngbounds;
+    var mapOptions;
     var arrMarkers = [];
     //init
     function initMap() {
-      var mapOptions = {
+      mapOptions = {
         //zoomControl: false,
         mapTypeControl: false,
         //scaleControl: false,
@@ -361,7 +449,7 @@
       //get new spots JSON
 
       // create spots list
-      var latlngbounds = new google.maps.LatLngBounds();
+      latlngbounds = new google.maps.LatLngBounds();
       var list = $("#spots-list");
       list.find(">h2 > span").text(spots["spots"].length);
       var spotsHTML = "";
@@ -456,25 +544,10 @@
       if (boolean) {
         //create content according to id
 
-        if (spots["spots"][id]["videoID"] == "") {
-          $("#spots-intro")
-            .find(".thumb")
-            .removeClass("video")
-            .html(`<img src="${spots["spots"][id]["thumb"]}" />`);
-        } else {
-          /*
-          $("#spots-intro")
-            .find(".thumb")
-            .html(
-              `<div class="yt"><iframe width="100%" height="auto" src="https://www.youtube.com/embed/${spots["spots"][id]["videoID"]}" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`
-            );*/
-          $("#spots-intro")
-            .find(".thumb")
-            .addClass("video")
-            .html(
-              `<img src="https://i.ytimg.com/vi/${spots["spots"][id]["videoID"]}/mqdefault.jpg" />`
-            );
-        }
+        $("#spots-intro")
+          .find(".thumb")
+          .removeClass("video")
+          .html(`<img src="${spots["spots"][id]["thumb"]}" />`);
 
         var infoHTML = `
             <label>基本資訊</label>
@@ -524,8 +597,115 @@
         //then
         $("#sideInfo").addClass("intro");
       } else {
-        //infowindow.close();
         $("#sideInfo").removeClass("intro");
+      }
+    }
+
+    function verifyAddSpotStep1() {
+      //reset
+      var wrong = 0;
+      var radioChecked = false;
+      const radioButtons = document.querySelectorAll(
+        '#hidden-newspot input[name="type"]'
+      );
+
+      for (const radioButton of radioButtons) {
+        if (radioButton.checked) {
+          radioChecked = true;
+          break;
+        }
+      }
+      if (!$("#hidden-newspot").find('input[name="name"]').val()) {
+        $("#hidden-newspot").find('input[name="name"]').focus();
+        wrong += 1;
+        alert("請自訂釣點名稱");
+      } else if (!radioChecked) {
+        wrong += 1;
+        alert("請選擇釣點類型");
+      }
+      //
+      if (wrong == 0) {
+        if (fmap == undefined) {
+          var mapElement = document.getElementById("form-gmap");
+          fmap = new google.maps.Map(mapElement, mapOptions);
+          google.maps.event.addListener(fmap, "click", function (event) {
+            if (newMarker == null) {
+              const image = {
+                url: "./images/icon_add.png",
+                scaledSize: new google.maps.Size(26, 31),
+              };
+              newMarker = new google.maps.Marker({
+                position: event.latLng,
+                map: fmap,
+                icon: image,
+              });
+            } else {
+              newMarker.setPosition(event.latLng);
+            }
+            fmap.panTo(event.latLng);
+            //
+            $("#hidden-newspot")
+              .find("input[name='lat']")
+              .val(event.latLng.lat);
+            $("#hidden-newspot")
+              .find("input[name='lng']")
+              .val(event.latLng.lng);
+          });
+          fmap.setCenter(latlngbounds.getCenter());
+          fmap.fitBounds(latlngbounds);
+          $("#form-gmap")
+            .delay(200)
+            .queue(function () {
+              fmap.setZoom(fmap.getZoom() - 0);
+              $(this).dequeue();
+            });
+        }
+        //
+        $("#hidden-newspot .add-spot-step2 p").text(
+          $("#hidden-newspot").find('input[name="name"]').val() +
+            " / " +
+            $("#hidden-newspot").find('input[name="type"]:checked').val()
+        );
+        $("#hidden-newspot").addClass("step2");
+      }
+    }
+
+    function verifyAddSpotStep2() {
+      if (!$("#hidden-newspot").find('input[name="lng"]').val()) {
+        alert("請從地圖選擇登錄的釣點位置");
+      } else {
+        //若成功寫入資料庫
+        $("#hidden-newspot .add-spot-step3 h2").html(
+          "<img src='./images/icon_add.png'/><br /><br />完成釣點登錄！"
+        );
+        feedbackHTML = `
+        <p>感謝你的支持，請等待本站管理員審核。</p>
+        <br/>
+        <h4>釣點名稱 / 類型</h4>
+        <p>${$("#hidden-newspot").find('input[name="name"]').val()} / ${$(
+          "#hidden-newspot"
+        )
+          .find('input[name="type"]:checked')
+          .val()}</p>
+        <br/>
+        <h4>經緯度</h4>
+        <p>LNG：${$("#hidden-newspot").find('input[name="lng"]').val()}</p>
+        <p>LAT：${$("#hidden-newspot").find('input[name="lat"]').val()}</p>
+        <br/>
+        <h4>Youtube影片</h4>
+        <p>${
+          $("#hidden-newspot").find('input[name="video"]').val()
+            ? $("#hidden-newspot").find('input[name="video"]').val()
+            : "無"
+        }</p>
+        `;
+        $("#hidden-newspot .add-spot-step3 .feedback").html(feedbackHTML);
+        $("#hidden-newspot").removeClass("step2").addClass("step3");
+        //
+        //reset
+        $("#hidden-newspot").find("form").get(0).reset();
+        newMarker.setMap(null);
+        newMarker = null;
       }
     }
   </script>
