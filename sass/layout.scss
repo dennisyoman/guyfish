@@ -723,11 +723,35 @@ hr {
       object-fit: cover;
     }
   }
+  .article {
+    max-width: 1000px;
+    margin: 0 auto 0;
+    .article-title {
+      margin-bottom: 50px;
+      h1 {
+        font-size: 36px;
+        line-height: 1.5;
+        font-weight: 500;
+        color: $text;
+        margin-bottom: 0.5em;
+        @media screen and (max-width: $md) {
+          font-size: 24px;
+        }
+      }
+    }
+    .editor {
+      width: 100% !important;
+      img {
+        max-width: 100%;
+      }
+    }
+  }
 
   .content {
     max-width: 1000px;
     margin: 0 auto 0;
     display: flex;
+
     > * {
       width: 50%;
       margin-bottom: 50px;
@@ -738,16 +762,16 @@ hr {
         width: 100%;
       }
     }
-  }
 
-  h1 {
-    font-size: 36px;
-    line-height: 1.5;
-    font-weight: 500;
-    color: $text;
-    margin-bottom: 0.5em;
-    @media screen and (max-width: $md) {
-      font-size: 24px;
+    h1 {
+      font-size: 36px;
+      line-height: 1.5;
+      font-weight: 500;
+      color: $text;
+      margin-bottom: 0.5em;
+      @media screen and (max-width: $md) {
+        font-size: 24px;
+      }
     }
   }
 

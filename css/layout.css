@@ -1098,6 +1098,37 @@ hr {
      object-fit: cover;
 }
 
+.inpage-wrapper .article {
+  max-width: 1000px;
+  margin: 0 auto 0;
+}
+
+.inpage-wrapper .article .article-title {
+  margin-bottom: 50px;
+}
+
+.inpage-wrapper .article .article-title h1 {
+  font-size: 36px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 0.5em;
+}
+
+@media screen and (max-width: 900px) {
+  .inpage-wrapper .article .article-title h1 {
+    font-size: 24px;
+  }
+}
+
+.inpage-wrapper .article .editor {
+  width: 100% !important;
+}
+
+.inpage-wrapper .article .editor img {
+  max-width: 100%;
+}
+
 .inpage-wrapper .content {
   max-width: 1000px;
   margin: 0 auto 0;
@@ -1120,7 +1151,7 @@ hr {
   }
 }
 
-.inpage-wrapper h1 {
+.inpage-wrapper .content h1 {
   font-size: 36px;
   line-height: 1.5;
   font-weight: 500;
@@ -1129,7 +1160,7 @@ hr {
 }
 
 @media screen and (max-width: 900px) {
-  .inpage-wrapper h1 {
+  .inpage-wrapper .content h1 {
     font-size: 24px;
   }
 }
