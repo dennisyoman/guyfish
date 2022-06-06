@@ -282,7 +282,7 @@ select,
 option,
 .modal,
 input {
-  font-family: "Noto Sans TC", "Heiti TC", "儷黑 Pro", "LiHei Pro", "文泉驛正黑", "WenQuanYi Zen Hei", "微軟正黑體", "Microsoft JhengHei", "新細明體", sans-serif, Arial, Helvetica, "Montserrat";
+  font-family: "Noto Sans TC", "Heiti TC", "儷黑 Pro", "LiHei Pro", "文泉驛正黑", "WenQuanYi Zen Hei", "微軟正黑體", "Microsoft JhengHei", "新細明體", sans-serif, Arial, Helvetica, "Montserrat";
   font-size: 16px;
   line-height: 1.5;
   font-weight: 300;
@@ -1823,6 +1823,65 @@ hr {
   display: block;
 }
 
+.form-module .thumb {
+  display: block;
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  overflow: hidden;
+  margin: 0 auto 0px;
+  background: #f2f2f2;
+}
+
+.form-module .thumb img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media screen and (max-width: 900px) {
+  .form-module .thumb {
+    width: 120px;
+    height: 120px;
+    border: 5px solid #fff;
+    margin-top: -100px;
+  }
+}
+
+.form-module .uid {
+  font-size: 20px;
+  line-height: 50px;
+  color: #333333;
+  text-align: center;
+  letter-spacing: 0.15em;
+}
+
+.form-module .level {
+  display: inline-block;
+  line-height: 30px;
+  height: 40px;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  padding: 5px 15px;
+  background: #333333;
+  letter-spacing: 0.15em;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+}
+
+.form-module .level img {
+  width: 30px;
+  height: 30px;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+  margin-right: 2px;
+}
+
 .form-module h2 {
   font-size: 18px;
   line-height: 1.5;
@@ -1965,6 +2024,27 @@ hr {
   font-size: 18px;
 }
 
+.form-module textarea {
+  position: relative;
+  border-radius: 0;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  width: 100%;
+  min-height: 170px;
+  line-height: 30px;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+}
+
 .form-module input[type="text"],
 .form-module input[type="password"] {
   display: block;
@@ -2033,7 +2113,7 @@ hr {
   display: inline-block;
   width: 22%;
   margin: 2% 1%;
-  background: #f8f8f8;
+  background: #f2f2f2;
   border-radius: 25px;
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;
@@ -2128,6 +2208,11 @@ hr {
 
 .block-wrapper .block .block-title.reset {
   background: url("../images/banner_mobile.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.block-wrapper .block .block-title.member {
+  background: url("../images/member.jpg") no-repeat center center;
   background-size: cover;
 }
 

@@ -10,9 +10,8 @@ select,
 option,
 .modal,
 input {
-  font-family: "Noto Sans TC", "Heiti TC", "儷黑 Pro", "LiHei Pro", "文泉驛正黑",
-    "WenQuanYi Zen Hei", "微軟正黑體", "Microsoft JhengHei", "新細明體",
-    sans-serif, Arial, Helvetica, "Montserrat";
+  font-family: "Noto Sans TC", "Heiti TC", "儷黑 Pro", "LiHei Pro", "文泉驛正黑", "WenQuanYi Zen Hei", "微軟正黑體",
+    "Microsoft JhengHei", "新細明體", sans-serif, Arial, Helvetica, "Montserrat";
   font-size: 16px;
   line-height: 1.5;
   font-weight: 300;
@@ -43,11 +42,7 @@ hr {
   text-align: right;
   padding: 40px $padding;
   height: 130px;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.5) 100%
-  );
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
 
   @include transition(all, 0.3s);
   @include box;
@@ -149,8 +144,7 @@ hr {
           padding: 0;
           width: 50px;
           height: 50px;
-          background: url("../images/icon_user_white.png") center center
-            no-repeat;
+          background: url("../images/icon_user_white.png") center center no-repeat;
           background-size: 40px 40px;
           margin-left: 20px;
           overflow: hidden;
@@ -317,8 +311,7 @@ hr {
 
 .news {
   min-height: 90vh;
-  background: url("../images/bg.jpg") no-repeat left 50vw top,
-    url("../images/banner_deco.png") repeat right 50vw center;
+  background: url("../images/bg.jpg") no-repeat left 50vw top, url("../images/banner_deco.png") repeat right 50vw center;
   background-size: cover, auto auto;
   display: flex;
   align-items: center;
@@ -1182,8 +1175,7 @@ hr {
     height: 40px;
     overflow: hidden;
     @include borderRadius(100%);
-    background: #f2f2f2 url("../images/icon_username.png") no-repeat center
-      center;
+    background: #f2f2f2 url("../images/icon_username.png") no-repeat center center;
     background-size: 17px auto;
     img {
       width: 100%;
@@ -1255,8 +1247,7 @@ hr {
       height: 40px;
       overflow: hidden;
       @include borderRadius(100%);
-      background: #f2f2f2 url("../images/icon_username.png") no-repeat center
-        center;
+      background: #f2f2f2 url("../images/icon_username.png") no-repeat center center;
       background-size: 17px auto;
       img {
         width: 100%;
@@ -1351,6 +1342,54 @@ hr {
 }
 
 .form-module {
+  .thumb {
+    display: block;
+    width: 150px;
+    height: 150px;
+    @include borderRadius(100%);
+    overflow: hidden;
+    margin: 0 auto 0px;
+    background: #f2f2f2;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media screen and (max-width: $md) {
+      width: 120px;
+      height: 120px;
+      border: 5px solid #fff;
+
+      margin-top: -100px;
+    }
+  }
+  .uid {
+    font-size: 20px;
+    line-height: 50px;
+    color: $text;
+    text-align: center;
+    letter-spacing: 0.15em;
+  }
+  .level {
+    display: inline-block;
+    line-height: 30px;
+    height: 40px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    padding: 5px 15px;
+    background: $text;
+    letter-spacing: 0.15em;
+    @include borderRadius(20px);
+    img {
+      width: 30px;
+      height: 30px;
+      object-fit: scale-down;
+      margin-right: 2px;
+    }
+  }
+
   h2 {
     font-size: 18px;
     line-height: 1.5;
@@ -1387,8 +1426,7 @@ hr {
       display: inline-block;
       width: 25px;
       height: 25px;
-      background: url("../images/Icon awesome-google.png") no-repeat center
-        center;
+      background: url("../images/Icon awesome-google.png") no-repeat center center;
       background-size: contain;
       vertical-align: middle;
       margin-right: 8px;
@@ -1405,8 +1443,7 @@ hr {
       display: inline-block;
       width: 25px;
       height: 25px;
-      background: url("../images/Icon awesome-facebook-f.png") no-repeat center
-        center;
+      background: url("../images/Icon awesome-facebook-f.png") no-repeat center center;
       background-size: contain;
       vertical-align: middle;
       margin-right: 8px;
@@ -1481,6 +1518,25 @@ hr {
     font-size: 18px;
   }
 
+  textarea {
+    position: relative;
+    border-radius: 0;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    width: 100%;
+    min-height: 170px;
+    line-height: 30px;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    @include borderRadius(15px);
+  }
+
   input[type="text"],
   input[type="password"] {
     display: block;
@@ -1495,34 +1551,19 @@ hr {
     &.user {
       padding-left: 60px;
       background: url("../images/icon_username.png") no-repeat center left 20px,
-        linear-gradient(
-          90deg,
-          transparent 50px,
-          rgba(204, 204, 204, 1) 50px,
-          transparent 51px
-        );
+        linear-gradient(90deg, transparent 50px, rgba(204, 204, 204, 1) 50px, transparent 51px);
       background-size: 17px auto, auto;
     }
     &.lock {
       padding-left: 60px;
       background: url("../images/icon_password.png") no-repeat center left 20px,
-        linear-gradient(
-          90deg,
-          transparent 50px,
-          rgba(204, 204, 204, 1) 50px,
-          transparent 51px
-        );
+        linear-gradient(90deg, transparent 50px, rgba(204, 204, 204, 1) 50px, transparent 51px);
       background-size: 17px auto, auto;
     }
     &.verify {
       padding-left: 60px;
       background: url("../images/icon_verify.png") no-repeat center left 20px,
-        linear-gradient(
-          90deg,
-          transparent 50px,
-          rgba(204, 204, 204, 1) 50px,
-          transparent 51px
-        );
+        linear-gradient(90deg, transparent 50px, rgba(204, 204, 204, 1) 50px, transparent 51px);
       background-size: 17px auto, auto;
     }
   }
@@ -1557,7 +1598,7 @@ hr {
       display: inline-block;
       width: 22%;
       margin: 2% 1%;
-      background: #f8f8f8;
+      background: #f2f2f2;
       @include borderRadius(25px);
       overflow: hidden;
       text-align: center;
@@ -1626,6 +1667,11 @@ hr {
         background: url("../images/banner_mobile.jpg") no-repeat center center;
         background-size: cover;
       }
+      &.member {
+        background: url("../images/member.jpg") no-repeat center center;
+        background-size: cover;
+      }
+
       h2 {
         font-size: 7vw;
         color: #fff;
@@ -1720,8 +1766,7 @@ hr {
         &.active {
           height: auto;
           z-index: 3;
-          background: #fff url("../images/btn_close.png") no-repeat top 15px
-            right 15px;
+          background: #fff url("../images/btn_close.png") no-repeat top 15px right 15px;
           background-size: 30px 30px;
         }
       }
