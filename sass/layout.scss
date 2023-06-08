@@ -50,7 +50,7 @@ hr {
 
   .logo {
     position: absolute;
-    z-index: 1;
+    z-index: 3;
     top: 35px;
     left: $padding;
     @include transition(all, 0.3s);
@@ -65,54 +65,28 @@ hr {
     }
   }
 
-  .mobile-nav {
-    display: none;
-    text-align: center;
-    background: $main;
-    height: 75px;
+  .menu {
+    position: absolute;
+    z-index: 3;
+    top: 20px;
+    right: $paddingMobile;
     pointer-events: auto;
+    width: 20px;
+    height: 20px;
+    display: none;
 
-    li {
-      width: 100%;
-
+    &::before {
+      content: "\f0c9";
+      color: $main;
+      font-family: "fontawesome";
+      font-size: 20px;
+      line-height: 1;
       text-align: center;
+    }
 
-      a {
-        width: 100%;
-        display: block;
-        font-size: 13px;
-        text-decoration: none;
-        line-height: 20px;
-        color: $light;
-        padding: 10px 0 8px;
-        letter-spacing: 0.1em;
-        font-weight: 500;
-
-        span {
-          display: block;
-          margin: 5px auto;
-          width: 30px;
-          height: 30px;
-          &.round {
-            border: 5px solid $main;
-            width: 65px;
-            height: 65px;
-            background: #fff;
-            @include borderRadius(100%);
-            margin-top: -30px;
-            @include boxShadow(0 4px 4px rgba(0, 0, 0, 0.2));
-            img {
-              width: 50%;
-              height: 50%;
-              margin-top: 15px;
-            }
-          }
-          img {
-            width: 90%;
-            height: 90%;
-            object-fit: contain;
-          }
-        }
+    &.active {
+      &::before {
+        content: "\f061";
       }
     }
   }
@@ -172,34 +146,36 @@ hr {
 
   &.fixtop,
   &.attop {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(8px);
-    height: 100px;
-    padding: 25px $padding;
+    @media screen and (min-width: $md) {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      height: 100px;
+      padding: 25px $padding;
 
-    @include boxShadow(0px 0px 8px rgba(0, 0, 0, 0.3));
+      @include boxShadow(0px 0px 8px rgba(0, 0, 0, 0.3));
 
-    .logo {
-      top: 20px;
-      left: $padding;
+      .logo {
+        top: 20px;
+        left: $padding;
 
-      a {
-        //width:36px;
-        //height:60px;
-        background: url("../images/logo_blue.png") center center no-repeat;
-        background-size: 100% 100%;
-      }
-    }
-
-    .main-nav {
-      li {
         a {
-          color: $text;
+          //width:36px;
+          //height:60px;
+          background: url("../images/logo_blue.png") center center no-repeat;
+          background-size: 100% 100%;
         }
+      }
 
-        &.member {
+      .main-nav {
+        li {
           a {
-            background-image: url("../images/icon_user.png");
+            color: $text;
+          }
+
+          &.member {
+            a {
+              background-image: url("../images/icon_user.png");
+            }
           }
         }
       }
@@ -207,22 +183,87 @@ hr {
   }
 
   @media screen and (max-width: $md) {
-    height: auto !important;
-    top: auto;
-    bottom: 0;
-    padding: 0 !important;
+    height: 60px;
     background: #fff;
+    padding: 0;
 
     @include boxShadow(0px 0px 8px rgba(0, 0, 0, 0.3));
 
-    .logo,
-    .main-nav {
-      display: none;
+    &.active {
+      .main-nav {
+        @include translate(0, 0);
+      }
     }
 
-    .mobile-nav {
-      display: flex;
-      justify-content: center;
+    .menu {
+      display: block;
+    }
+
+    .logo {
+      top: 15px;
+      left: $paddingMobile;
+      a {
+        width: 138px;
+        height: 30px;
+        background-image: url("../images/logo_blue.png");
+      }
+    }
+    .main-nav {
+      background: #ffffff;
+      width: 100%;
+      height: calc(100vh - 59px);
+      top: 59px;
+      position: relative;
+      overflow: auto;
+      text-align: center;
+      padding: 150px 0 $padding;
+      @include translate(100%, 0);
+      @include transition(transform, 0.6s);
+
+      li {
+        display: block;
+
+        a {
+          display: inline-block;
+          font-size: 18px;
+          line-height: 50px;
+          padding: 0 $paddingMobile;
+          color: $text;
+
+          &:hover {
+            color: $main !important;
+          }
+        }
+
+        &.member {
+          position: absolute;
+          top: 30px;
+          width: 100%;
+          a {
+            padding: 0;
+            width: 100px;
+            height: 100px;
+            background-image: url("../images/icon_user.png");
+            background-size: 80px 80px;
+            margin-left: 0;
+          }
+        }
+
+        &.cta {
+          margin: 0;
+          margin-top: 20px;
+          background: none;
+          border: none;
+
+          a {
+            background: $main;
+            color: #fff !important;
+            &:hover {
+              color: #fff !important;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -1538,7 +1579,8 @@ hr {
   }
 
   input[type="text"],
-  input[type="password"] {
+  input[type="password"],
+  input[type="date"] {
     display: block;
     width: 100%;
     line-height: 48px;
