@@ -702,15 +702,60 @@ hr {
   }
 }
 
+.page-filter {
+  position: fixed;
+  width: 100%;
+  top: 100px;
+  left: 0;
+  z-index: 5;
+  background: #1874bd;
+  text-align: center;
+  padding: 10px 50px;
+  white-space: nowrap;
+  overflow: auto;
+}
+.page-filter a {
+  display: inline-block;
+  font-size: 16px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  text-decoration: none;
+  padding: 0 18px;
+  margin: 5px;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+}
+.page-filter a.selected {
+  background: #fff;
+  color: #1874bd;
+}
+@media screen and (max-width: 900px) {
+  .page-filter {
+    padding: 5px 50px;
+    top: 60px;
+  }
+  .page-filter a {
+    font-size: 14px;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 12px;
+    border-radius: 12px;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+  }
+}
+
 .lookbook-wrapper {
   position: relative;
-  padding: 150px 50px 50px;
+  padding: 200px 50px 50px;
   max-width: 1600px;
   margin: 0 auto;
 }
 @media screen and (max-width: 900px) {
   .lookbook-wrapper {
-    padding: 30px;
+    padding: 150px 25px;
     display: block;
   }
   .lookbook-wrapper .list-deco {

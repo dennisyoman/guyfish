@@ -591,13 +591,54 @@ hr {
     }
   }
 }
+.page-filter {
+  position: fixed;
+  width: 100%;
+  top: 100px;
+  left: 0;
+  z-index: 5;
+  background: $main;
+  text-align: center;
+  padding: 10px $padding;
+  white-space: nowrap;
+  overflow: auto;
+
+  a {
+    display: inline-block;
+    font-size: 16px;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 18px;
+    margin: 5px;
+    @include borderRadius(15px);
+
+    &.selected {
+      background: #fff;
+      color: $main;
+    }
+  }
+
+  @media screen and (max-width: $md) {
+    padding: 5px $padding;
+    top: 60px;
+    a {
+      font-size: 14px;
+      height: 24px;
+      line-height: 24px;
+      padding: 0 12px;
+      @include borderRadius(12px);
+    }
+  }
+}
 .lookbook-wrapper {
   position: relative;
-  padding: 150px $padding $padding;
+  padding: 200px $padding $padding;
   max-width: 1600px;
   margin: 0 auto;
   @media screen and (max-width: $md) {
-    padding: 30px;
+    padding: 150px $paddingMobile;
     display: block;
     .list-deco {
       text-align: center !important;
