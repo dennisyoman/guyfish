@@ -352,8 +352,12 @@ hr {
 
 .news {
   min-height: 90vh;
-  background: url("../images/bg.jpg") no-repeat left 50vw top, url("../images/banner_deco.png") repeat right 50vw center;
-  background-size: cover, auto auto;
+  background:
+    url("../images/bg.jpg") no-repeat left 50vw top,
+    url("../images/banner_deco.png") repeat right 50vw center;
+  background-size:
+    cover,
+    auto auto;
   display: flex;
   align-items: center;
   position: relative;
@@ -986,7 +990,7 @@ hr {
     }
   }
   @media screen and (max-width: $md) {
-    padding: 30px;
+    padding: 90px 30px 30px;
   }
 }
 
@@ -1101,7 +1105,7 @@ hr {
   margin: 0 auto;
 
   @media screen and (max-width: $md) {
-    padding: 30px;
+    padding: 90px 30px 30px;
     display: block;
   }
 
@@ -1291,7 +1295,10 @@ hr {
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  input[type="text"] {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"] {
     position: relative;
     border-radius: 0;
     -moz-appearance: none;
@@ -1351,6 +1358,19 @@ hr {
       color: $remark;
       display: inline-block;
     }
+    h5 {
+      font-size: 12px;
+      line-height: 1.5;
+      color: $second;
+      display: inline-block;
+      float: right;
+      cursor: pointer;
+      &::before {
+        content: "\f05e ";
+        font-family: "fontawesome";
+        margin-right: 0.3em;
+      }
+    }
     p {
       font-size: 12px;
       color: $text;
@@ -1366,6 +1386,10 @@ hr {
   }
 }
 #hidden-login {
+  width: calc(100vw - 102px);
+  max-width: 360px;
+}
+#report {
   width: calc(100vw - 102px);
   max-width: 360px;
 }
@@ -1620,6 +1644,9 @@ hr {
   }
 
   input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
   input[type="password"],
   input[type="date"] {
     display: block;
@@ -1633,21 +1660,31 @@ hr {
     }
     &.user {
       padding-left: 60px;
-      background: url("../images/icon_username.png") no-repeat center left 20px,
+      background:
+        url("../images/icon_username.png") no-repeat center left 20px,
         linear-gradient(90deg, transparent 50px, rgba(204, 204, 204, 1) 50px, transparent 51px);
-      background-size: 17px auto, auto;
+      background-size:
+        17px auto,
+        auto;
     }
+
     &.lock {
       padding-left: 60px;
-      background: url("../images/icon_password.png") no-repeat center left 20px,
+      background:
+        url("../images/icon_password.png") no-repeat center left 20px,
         linear-gradient(90deg, transparent 50px, rgba(204, 204, 204, 1) 50px, transparent 51px);
-      background-size: 17px auto, auto;
+      background-size:
+        17px auto,
+        auto;
     }
     &.verify {
       padding-left: 60px;
-      background: url("../images/icon_verify.png") no-repeat center left 20px,
+      background:
+        url("../images/icon_verify.png") no-repeat center left 20px,
         linear-gradient(90deg, transparent 50px, rgba(204, 204, 204, 1) 50px, transparent 51px);
-      background-size: 17px auto, auto;
+      background-size:
+        17px auto,
+        auto;
     }
   }
 
@@ -2534,6 +2571,44 @@ hr {
 }
 
 //often used
+.loader-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+  .loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 4px solid $main;
+    border-right: 4px solid transparent;
+    box-sizing: border-box;
+    animation: rotationloader 1s linear infinite;
+  }
+  .loader::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border-left: 4px solid $second;
+    border-bottom: 4px solid transparent;
+    animation: rotationloader 0.5s linear infinite reverse;
+  }
+  @keyframes rotationloader {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
 .cta {
   display: inline-block;
   font-size: 18px;

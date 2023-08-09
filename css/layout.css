@@ -1112,7 +1112,7 @@ hr {
 }
 @media screen and (max-width: 900px) {
   .inpage-wrapper {
-    padding: 30px;
+    padding: 90px 30px 30px;
   }
 }
 
@@ -1229,7 +1229,7 @@ hr {
 }
 @media screen and (max-width: 900px) {
   .card-wrapper {
-    padding: 30px;
+    padding: 90px 30px 30px;
     display: block;
   }
 }
@@ -1420,7 +1420,10 @@ hr {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.feedbacker input[type=text] {
+.feedbacker input[type=text],
+.feedbacker input[type=email],
+.feedbacker input[type=tel],
+.feedbacker input[type=number] {
   position: relative;
   border-radius: 0;
   -moz-appearance: none;
@@ -1483,6 +1486,19 @@ hr {
   color: #999999;
   display: inline-block;
 }
+.feedback-list li h5 {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #6e6eda;
+  display: inline-block;
+  float: right;
+  cursor: pointer;
+}
+.feedback-list li h5::before {
+  content: "\f05e";
+  font-family: "fontawesome";
+  margin-right: 0.3em;
+}
 .feedback-list li p {
   font-size: 12px;
   color: #333333;
@@ -1497,6 +1513,11 @@ hr {
 }
 
 #hidden-login {
+  width: calc(100vw - 102px);
+  max-width: 360px;
+}
+
+#report {
   width: calc(100vw - 102px);
   max-width: 360px;
 }
@@ -1746,6 +1767,9 @@ hr {
   -webkit-border-radius: 15px;
 }
 .form-module input[type=text],
+.form-module input[type=email],
+.form-module input[type=tel],
+.form-module input[type=number],
 .form-module input[type=password],
 .form-module input[type=date] {
   display: block;
@@ -1758,11 +1782,17 @@ hr {
   -webkit-border-radius: 25px;
 }
 .form-module input[type=text]:focus,
+.form-module input[type=email]:focus,
+.form-module input[type=tel]:focus,
+.form-module input[type=number]:focus,
 .form-module input[type=password]:focus,
 .form-module input[type=date]:focus {
   border-color: #1874bd;
 }
 .form-module input[type=text].user,
+.form-module input[type=email].user,
+.form-module input[type=tel].user,
+.form-module input[type=number].user,
 .form-module input[type=password].user,
 .form-module input[type=date].user {
   padding-left: 60px;
@@ -1770,6 +1800,9 @@ hr {
   background-size: 17px auto, auto;
 }
 .form-module input[type=text].lock,
+.form-module input[type=email].lock,
+.form-module input[type=tel].lock,
+.form-module input[type=number].lock,
 .form-module input[type=password].lock,
 .form-module input[type=date].lock {
   padding-left: 60px;
@@ -1777,6 +1810,9 @@ hr {
   background-size: 17px auto, auto;
 }
 .form-module input[type=text].verify,
+.form-module input[type=email].verify,
+.form-module input[type=tel].verify,
+.form-module input[type=number].verify,
 .form-module input[type=password].verify,
 .form-module input[type=date].verify {
   padding-left: 60px;
@@ -2678,6 +2714,44 @@ hr {
   font-size: 12px;
   line-height: 1.3;
   color: #333333;
+}
+
+.loader-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+}
+.loader-wrapper .loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 4px solid #1874bd;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  animation: rotationloader 1s linear infinite;
+}
+.loader-wrapper .loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border-left: 4px solid #6e6eda;
+  border-bottom: 4px solid transparent;
+  animation: rotationloader 0.5s linear infinite reverse;
+}
+@keyframes rotationloader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .cta {
