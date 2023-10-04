@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 @keyframes subNav {
   0% {
     opacity: 0;
@@ -143,7 +143,7 @@ input {
   font-family: "Noto Sans TC", "Heiti TC", "儷黑 Pro", "LiHei Pro", "文泉驛正黑", "WenQuanYi Zen Hei", "微軟正黑體", "Microsoft JhengHei", "新細明體", sans-serif, Arial, Helvetica, "Montserrat";
   font-size: 16px;
   line-height: 1.5;
-  font-weight: 300;
+  font-weight: 400;
   color: #333333;
 }
 
@@ -162,23 +162,24 @@ hr {
 }
 
 .header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  text-align: right;
-  padding: 40px 50px;
-  height: 130px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  -webkit-transition-timing-function: ease;
-  transition-timing-function: ease;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  pointer-events: none;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    text-align: right;
+    padding: 40px 50px;
+    height: 130px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    pointer-events: none;
+  
 }
 .header .logo {
   position: absolute;
@@ -428,7 +429,7 @@ hr {
 .infowindow h3 {
   font-size: 15px;
   color: #333333;
-  font-weight: 600;
+  font-weight: 700;
 }
 .infowindow a {
   margin-top: 10px;
@@ -488,7 +489,7 @@ hr {
   font-size: 48px;
   color: #1874bd;
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.5em;
   clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
   -webkit-transition: all 1s;
@@ -548,7 +549,7 @@ hr {
   color: #1874bd;
   text-decoration: none;
   display: inline-block;
-  font-weight: 500;
+  font-weight: 700;
   background: url("../images/icon_more.png") no-repeat left center;
   background-size: 18px 18px;
   padding-left: 25px;
@@ -561,7 +562,7 @@ hr {
   color: #333333;
   text-decoration: none;
   display: inline-block;
-  font-weight: 500;
+  font-weight: 700;
   background: url("../images/btn_back.png") no-repeat left center;
   background-size: 18px 18px;
   padding-left: 25px;
@@ -657,7 +658,7 @@ hr {
   font-size: 18px;
   line-height: 1.5;
   color: #333333;
-  font-weight: 500;
+  font-weight: 700;
   margin-bottom: 1em;
   overflow: hidden;
   white-space: nowrap;
@@ -703,16 +704,17 @@ hr {
 }
 
 .page-filter {
-  position: fixed;
-  width: 100%;
-  top: 100px;
-  left: 0;
-  z-index: 5;
-  background: #1874bd;
-  text-align: center;
-  padding: 10px 50px;
-  white-space: nowrap;
-  overflow: auto;
+    position: fixed;
+    width: 100%;
+    top: 100px;
+    left: 0;
+    z-index: 5;
+    background: #1874bd;
+    text-align: center;
+    padding: 10px 50px;
+    white-space: nowrap;
+    overflow: auto;
+   
 }
 .page-filter a {
   display: inline-block;
@@ -768,7 +770,7 @@ hr {
   font-size: 24px;
   color: #333333;
   line-height: 40px;
-  font-weight: 500;
+  font-weight: 700;
   border-bottom: 1px solid #ccc;
 }
 .lookbook-wrapper h2 span {
@@ -777,7 +779,7 @@ hr {
   line-height: 40px;
   color: #60a1d3;
   float: right;
-  font-weight: 600;
+  font-weight: 700;
   margin-left: 10px;
 }
 .lookbook-wrapper .list-deco {
@@ -790,7 +792,7 @@ hr {
   color: #d4dbe2;
   width: 100%;
   z-index: -1;
-  font-weight: 600;
+  font-weight: 700;
   -ms-transform: translate(0, -50%);
   -webkit-transform: translate(0, -50%);
   transform: translate(0, -50%);
@@ -807,13 +809,13 @@ hr {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 .lookbook-wrapper .fish-list {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  margin: 50px auto 100px;
-  max-width: 1200px;
-  -webkit-transform: translate3d(0, 0, -9000px);
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    margin: 50px auto 100px;
+    max-width: 1200px;
+    -webkit-transform: translate3d(0,0,-9000px);
 }
 .lookbook-wrapper .fish-list > div:not(.list-deco) {
   width: 20%;
@@ -867,7 +869,7 @@ hr {
   line-height: 1.5;
   opacity: 0;
   position: relative;
-  font-weight: 500;
+  font-weight: 700;
   -webkit-transition: all 0.6s;
   transition: all 0.6s;
   -webkit-transition-timing-function: ease;
@@ -942,7 +944,7 @@ hr {
 .inpage-wrapper .article .article-title h1 {
   font-size: 36px;
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: 700;
   color: #333333;
   margin-bottom: 0.5em;
 }
@@ -977,7 +979,7 @@ hr {
 .inpage-wrapper .content h1 {
   font-size: 36px;
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: 700;
   color: #333333;
   margin-bottom: 0.5em;
 }
@@ -1102,9 +1104,9 @@ hr {
   height: 280px;
 }
 .inpage-wrapper .fish-img {
-  width: 100%;
-  text-align: center;
-  -webkit-transform: translate3d(0, 0, -9000px);
+    width: 100%;
+    text-align: center;
+    -webkit-transform: translate3d(0,0,-9000px);
 }
 .inpage-wrapper .fish-img img {
   width: 100%;
@@ -1114,7 +1116,7 @@ hr {
 }
 @media screen and (max-width: 900px) {
   .inpage-wrapper {
-    padding: 30px;
+    padding: 90px 30px 30px;
   }
 }
 
@@ -1139,7 +1141,7 @@ hr {
   font-size: 24px;
   color: #333333;
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: 700;
 }
 .inpage-sub-wrapper h2 span {
   font-family: "ubuntu";
@@ -1231,7 +1233,7 @@ hr {
 }
 @media screen and (max-width: 900px) {
   .card-wrapper {
-    padding: 30px;
+    padding: 90px 30px 30px;
     display: block;
   }
 }
@@ -1239,7 +1241,7 @@ hr {
   font-size: 24px;
   color: #333333;
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: 700;
 }
 .card-wrapper h2 span {
   font-family: "ubuntu";
@@ -1402,7 +1404,7 @@ hr {
   color: #333333;
   display: inline-block;
   margin-right: 10px;
-  font-weight: 500;
+  font-weight: 700;
 }
 .feedbacker h4 {
   font-size: 12px;
@@ -1422,7 +1424,10 @@ hr {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.feedbacker input[type=text] {
+.feedbacker input[type=text],
+.feedbacker input[type=email],
+.feedbacker input[type=tel],
+.feedbacker input[type=number] {
   position: relative;
   border-radius: 0;
   -moz-appearance: none;
@@ -1477,13 +1482,26 @@ hr {
   color: #333333;
   display: inline-block;
   margin-right: 10px;
-  font-weight: 500;
+  font-weight: 700;
 }
 .feedback-list li h4 {
   font-size: 12px;
   line-height: 1.5;
   color: #999999;
   display: inline-block;
+}
+.feedback-list li h5 {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #6e6eda;
+  display: inline-block;
+  float: right;
+  cursor: pointer;
+}
+.feedback-list li h5::before {
+  content: "\f05e";
+  font-family: "fontawesome";
+  margin-right: 0.3em;
 }
 .feedback-list li p {
   font-size: 12px;
@@ -1499,6 +1517,11 @@ hr {
 }
 
 #hidden-login {
+  width: calc(100vw - 102px);
+  max-width: 360px;
+}
+
+#report {
   width: calc(100vw - 102px);
   max-width: 360px;
 }
@@ -1608,7 +1631,7 @@ hr {
   line-height: 1.5;
   color: #333333;
   margin-bottom: 1em;
-  font-weight: 500;
+  font-weight: 700;
 }
 .form-module h3 {
   font-size: 14px;
@@ -1748,6 +1771,9 @@ hr {
   -webkit-border-radius: 15px;
 }
 .form-module input[type=text],
+.form-module input[type=email],
+.form-module input[type=tel],
+.form-module input[type=number],
 .form-module input[type=password],
 .form-module input[type=date] {
   display: block;
@@ -1760,11 +1786,17 @@ hr {
   -webkit-border-radius: 25px;
 }
 .form-module input[type=text]:focus,
+.form-module input[type=email]:focus,
+.form-module input[type=tel]:focus,
+.form-module input[type=number]:focus,
 .form-module input[type=password]:focus,
 .form-module input[type=date]:focus {
   border-color: #1874bd;
 }
 .form-module input[type=text].user,
+.form-module input[type=email].user,
+.form-module input[type=tel].user,
+.form-module input[type=number].user,
 .form-module input[type=password].user,
 .form-module input[type=date].user {
   padding-left: 60px;
@@ -1772,6 +1804,9 @@ hr {
   background-size: 17px auto, auto;
 }
 .form-module input[type=text].lock,
+.form-module input[type=email].lock,
+.form-module input[type=tel].lock,
+.form-module input[type=number].lock,
 .form-module input[type=password].lock,
 .form-module input[type=date].lock {
   padding-left: 60px;
@@ -1779,6 +1814,9 @@ hr {
   background-size: 17px auto, auto;
 }
 .form-module input[type=text].verify,
+.form-module input[type=email].verify,
+.form-module input[type=tel].verify,
+.form-module input[type=number].verify,
 .form-module input[type=password].verify,
 .form-module input[type=date].verify {
   padding-left: 60px;
@@ -1925,7 +1963,7 @@ hr {
 .block-wrapper .block .block-title h3 {
   font-size: 50px;
   color: #fff;
-  font-weight: 500;
+  font-weight: 700;
   clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
   -webkit-transition: all 1s;
   transition: all 1s;
@@ -2046,7 +2084,7 @@ hr {
   height: 60px;
   font-size: 15px;
   color: #333333;
-  font-weight: 500;
+  font-weight: 700;
   text-decoration: none;
   padding: 0 0px 0 60px;
   letter-spacing: 0.1em;
@@ -2105,7 +2143,7 @@ hr {
   color: #333333;
   line-height: 1.5;
   margin-bottom: 30px;
-  font-weight: 500;
+  font-weight: 700;
 }
 .fishing-map .spots h2 span {
   font-family: "ubuntu";
@@ -2696,6 +2734,7 @@ hr {
   width: 100%;
   height: 100%;
   background: rgba(255, 255, 255, 0.7);
+ 
 }
 .loader-wrapper .loader {
   width: 48px;
@@ -2720,7 +2759,6 @@ hr {
   border-bottom: 4px solid transparent;
   animation: rotationloader 0.5s linear infinite reverse;
 }
-
 @keyframes rotationloader {
   0% {
     transform: rotate(0deg);
@@ -2729,11 +2767,12 @@ hr {
     transform: rotate(360deg);
   }
 }
+
 .cta {
   display: inline-block;
   font-size: 18px;
   letter-spacing: 0.05em;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 50px;
   background: #1874bd;
   cursor: pointer;
@@ -2881,3 +2920,4 @@ form {
   /* Firefox 18- */
   color: #aaa;
 }
+
