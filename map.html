@@ -168,6 +168,10 @@
     </section>
 
     <section class="fishing-map">
+      <!-- 把loader-wrapper的style="z-index: 4"拿掉就會跑到最上方 -->
+      <div class="loader-wrapper fixed" style="z-index: 4">
+        <span class="loader"></span>
+      </div>
       <div class="func">
         <div>
           <a class="func-btn back-home" href="./">關閉地圖</a>
@@ -256,6 +260,7 @@
           <button class="cta"><a href="spot.html">前往釣點介紹</a></button>
         </div>
       </div>
+
       <div id="gmap" class="gmap"></div>
     </section>
   </body>

@@ -143,7 +143,7 @@ input {
   font-family: "Noto Sans TC", "Heiti TC", "儷黑 Pro", "LiHei Pro", "文泉驛正黑", "WenQuanYi Zen Hei", "微軟正黑體", "Microsoft JhengHei", "新細明體", sans-serif, Arial, Helvetica, "Montserrat";
   font-size: 16px;
   line-height: 1.5;
-  font-weight: 300;
+  font-weight: 400;
   color: #333333;
 }
 
@@ -428,7 +428,7 @@ hr {
 .infowindow h3 {
   font-size: 15px;
   color: #333333;
-  font-weight: 600;
+  font-weight: 700;
 }
 .infowindow a {
   margin-top: 10px;
@@ -488,7 +488,7 @@ hr {
   font-size: 48px;
   color: #1874bd;
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.5em;
   clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
   -webkit-transition: all 1s;
@@ -548,7 +548,7 @@ hr {
   color: #1874bd;
   text-decoration: none;
   display: inline-block;
-  font-weight: 500;
+  font-weight: 700;
   background: url("../images/icon_more.png") no-repeat left center;
   background-size: 18px 18px;
   padding-left: 25px;
@@ -561,7 +561,7 @@ hr {
   color: #333333;
   text-decoration: none;
   display: inline-block;
-  font-weight: 500;
+  font-weight: 700;
   background: url("../images/btn_back.png") no-repeat left center;
   background-size: 18px 18px;
   padding-left: 25px;
@@ -657,7 +657,7 @@ hr {
   font-size: 18px;
   line-height: 1.5;
   color: #333333;
-  font-weight: 500;
+  font-weight: 700;
   margin-bottom: 1em;
   overflow: hidden;
   white-space: nowrap;
@@ -768,7 +768,7 @@ hr {
   font-size: 24px;
   color: #333333;
   line-height: 40px;
-  font-weight: 500;
+  font-weight: 700;
   border-bottom: 1px solid #ccc;
 }
 .lookbook-wrapper h2 span {
@@ -777,7 +777,7 @@ hr {
   line-height: 40px;
   color: #60a1d3;
   float: right;
-  font-weight: 600;
+  font-weight: 700;
   margin-left: 10px;
 }
 .lookbook-wrapper .list-deco {
@@ -790,7 +790,7 @@ hr {
   color: #d4dbe2;
   width: 100%;
   z-index: -1;
-  font-weight: 600;
+  font-weight: 700;
   -ms-transform: translate(0, -50%);
   -webkit-transform: translate(0, -50%);
   transform: translate(0, -50%);
@@ -866,7 +866,7 @@ hr {
   line-height: 1.5;
   opacity: 0;
   position: relative;
-  font-weight: 500;
+  font-weight: 700;
   -webkit-transition: all 0.6s;
   transition: all 0.6s;
   -webkit-transition-timing-function: ease;
@@ -941,7 +941,7 @@ hr {
 .inpage-wrapper .article .article-title h1 {
   font-size: 36px;
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: 700;
   color: #333333;
   margin-bottom: 0.5em;
 }
@@ -976,7 +976,7 @@ hr {
 .inpage-wrapper .content h1 {
   font-size: 36px;
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: 700;
   color: #333333;
   margin-bottom: 0.5em;
 }
@@ -1137,7 +1137,7 @@ hr {
   font-size: 24px;
   color: #333333;
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: 700;
 }
 .inpage-sub-wrapper h2 span {
   font-family: "ubuntu";
@@ -1237,7 +1237,7 @@ hr {
   font-size: 24px;
   color: #333333;
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: 700;
 }
 .card-wrapper h2 span {
   font-family: "ubuntu";
@@ -1400,7 +1400,7 @@ hr {
   color: #333333;
   display: inline-block;
   margin-right: 10px;
-  font-weight: 500;
+  font-weight: 700;
 }
 .feedbacker h4 {
   font-size: 12px;
@@ -1478,7 +1478,7 @@ hr {
   color: #333333;
   display: inline-block;
   margin-right: 10px;
-  font-weight: 500;
+  font-weight: 700;
 }
 .feedback-list li h4 {
   font-size: 12px;
@@ -1627,7 +1627,7 @@ hr {
   line-height: 1.5;
   color: #333333;
   margin-bottom: 1em;
-  font-weight: 500;
+  font-weight: 700;
 }
 .form-module h3 {
   font-size: 14px;
@@ -1959,7 +1959,7 @@ hr {
 .block-wrapper .block .block-title h3 {
   font-size: 50px;
   color: #fff;
-  font-weight: 500;
+  font-weight: 700;
   clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
   -webkit-transition: all 1s;
   transition: all 1s;
@@ -2080,7 +2080,7 @@ hr {
   height: 60px;
   font-size: 15px;
   color: #333333;
-  font-weight: 500;
+  font-weight: 700;
   text-decoration: none;
   padding: 0 0px 0 60px;
   letter-spacing: 0.1em;
@@ -2139,7 +2139,7 @@ hr {
   color: #333333;
   line-height: 1.5;
   margin-bottom: 30px;
-  font-weight: 500;
+  font-weight: 700;
 }
 .fishing-map .spots h2 span {
   font-family: "ubuntu";
@@ -2722,6 +2722,15 @@ hr {
   justify-content: center;
   min-height: 150px;
 }
+.loader-wrapper.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+}
 .loader-wrapper .loader {
   width: 48px;
   height: 48px;
@@ -2758,7 +2767,7 @@ hr {
   display: inline-block;
   font-size: 18px;
   letter-spacing: 0.05em;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 50px;
   background: #1874bd;
   cursor: pointer;
